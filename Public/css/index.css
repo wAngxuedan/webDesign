@@ -1,0 +1,9 @@
+*{margin: 0px;padding: 0px;}
+body{font-size: 62.5%}
+.body{width: 100%;margin-left: auto;margin-right: auto}
+.navbar{font-size: 3em;}
+.userbar {list-style: none;position:absolute;right:50px;}
+.userbar li{position: relative;float: right;padding:10px;}
+.user-link{color: rgba(255,255,255,.5)}
+.form-control,#loginBtn,#registerBtn{width:70%;margin: auto;display: block;}
+#verifyCode1,#verifyCode2{border:0px;width: 80%}
