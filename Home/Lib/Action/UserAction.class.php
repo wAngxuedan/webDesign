@@ -48,8 +48,10 @@ class UserAction extends Action {
          	  $this->error('注册失败');
          }
         }
-       
     }
+     public function test(){
+      $this->display();
+     }
 }
 
 ?>

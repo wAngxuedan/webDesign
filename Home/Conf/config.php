@@ -8,5 +8,6 @@ return array(
 	'DB_PWD'=>'',        //设置密码
 	'DB_PORT'=>'3306',   //设置端口号
 	'SHOW_PAGE_TRACE'=>true,//开启页面Trace
+	'LAYOUT_ON'=>true,//开启模板渲染
 );
 ?>
