@@ -1,7 +1,7 @@
 <?php
 header("Content-Type:text/html; charset=utf-8");
-class IndexAction extends Action {
+class ManagerAction extends Action {
     public function index(){
-	$this->redirect("User/index");
+	$this->display();
     }
 }

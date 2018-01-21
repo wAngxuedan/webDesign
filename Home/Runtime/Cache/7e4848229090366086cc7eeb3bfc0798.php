@@ -2,17 +2,16 @@
 <html>
   <head>
     <title>悟空咨讯</title>
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="/webDesign/Public/img/favicon.ico" />
     <meta charset="utf-8" name="viewport" content="width=device-width,initial-scale=1">
     <!-- 新 Bootstrap4 核心 CSS 文件 -->
     <link rel="stylesheet" href="/webDesign/Public/bootstrap-4.0.0-beta.3-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/webDesign/Public/bootstrap-4.0.0-beta.3-dist/css/bootstrap.css">
     <link rel="stylesheet" href="/webDesign/Public/Font-Awesome-3.2.1/css/font-awesome.min.css">
     <!-- 自定义css文件 -->
-    <link rel="stylesheet" href="/webDesign/Public/css/index.css">
+    <link rel="stylesheet" href="/webDesign/Public/css/home.css">
     <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
     <script src="/webDesign/Public/bootstrap-4.0.0-beta.3-dist/js/jquery-3.2.1.js"></script>
-
     <!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
     <script src="/webDesign/Public/bootstrap-4.0.0-beta.3-dist/js/bootstrap.min.js"></script>
   </head>
@@ -25,7 +24,7 @@
         <li class="nav-item ">
           <div class="nav-link logo" ></div>
         </li>
-        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</p>
+        <p>&nbsp&nbsp&nbsp</p>
         <li class="nav-item ">
           <a class="nav-link" href="#">股票</a>
         </li>
@@ -41,6 +40,9 @@
         <li class="nav-item">
           <a class="nav-link" href="#">债券</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">热搜榜</a>
+        </li>
         <!-- search框 -->
         <li class="nav-item searchframe">
           <div class="inputframe">
@@ -52,7 +54,7 @@
       <!-- 用户部分 -->
       <ul class="userbar">
         <li class="user-item" >
-          <a class="user-link" href="#">后台入口</a>
+          <a class="user-link" href="/webDesign/admin.php/Index/index">后台入口</a>
         </li>
         <li class="nuser-item">
           <a class="user-link" href="#" data-toggle="modal" data-target="#myModal2">注册</a>
@@ -62,7 +64,7 @@
         </li>
       </ul>
     </nav>
-    <img src="__APP__/Public/code/id" style="display:none" />
+    <img src="__APP__/Public/code" style="display:none" />
     <!-- 登录模态框 -->
     <div class="modal fade" id="myModal1">
       <div class="modal-dialog">
@@ -82,7 +84,7 @@
               <br/>
               <div class="form-control ">
                 <input type="test" name="verifyCode" id="verifyCode1"  placeholder="verifyCode" required>
-                <img src="__APP__/Public/code/id" onclick='this.src=this.src+"?"+Math.random' />
+                <img src="__APP__/Public/code" onclick='this.src=this.src+"?"+Math.random' />
               </div>
               <br/>
               <input type="submit" class="btn btn-lg btn-primary " id="loginBtn" value="登录">
@@ -127,7 +129,7 @@
               <br/>
               <div class="form-control ">
                 <input type="test" name="verifyCode" id="verifyCode2"  placeholder="verifyCode" required>
-                <img src="__APP__/Public/code/id" onclick='this.src=this.src+"?"+Math.random' />
+                <img src="__APP__/Public/code" onclick='this.src=this.src+"?"+Math.random' />
               </div>
               <br/>
               <input type="submit" class="btn btn-lg btn-primary " id="registerBtn" value="注册">
@@ -140,7 +142,8 @@
         </div>
       </div>
     </div>
-    <!-- 轮播 -->
+    
+<!-- 轮播 -->
 <div id="picture" class="carousel slide" data-ride="carousel">
   <!-- 指示符 -->
   <ul class="carousel-indicators">
@@ -169,74 +172,76 @@
   </a>
 </div>
 <!-- 主体内容 -->
-<div class="mainCard">
-  <h2>股票</h2><hr/>
-  <ul>
-    <li >沪指创两年新高 权重股仍看好</li>
-    <li >沪指创两年新高 权重股仍看好</li>
-    <li >沪指创两年新高 权重股仍看好</li>
-    <li >沪指创两年新高 权重股仍看好</li>
-    <li >沪指创两年新高 权重股仍看好</li>
-    <li >沪指创两年新高 权重股仍看好</li>
-    <li >沪指创两年新高 权重股仍看好</li>
-    <li >沪指创两年新高 权重股仍看好</li>
-  </ul>
-</div>
-<div class="mainCard">
-  <h2>基金</h2><hr/>
-  <ul>
-    <li >沪指创两年新高 权重股仍看好</li>
-    <li >沪指创两年新高 权重股仍看好</li>
-    <li >沪指创两年新高 权重股仍看好</li>
-    <li >沪指创两年新高 权重股仍看好</li>
-    <li >沪指创两年新高 权重股仍看好</li>
-    <li >沪指创两年新高 权重股仍看好</li>
-    <li >沪指创两年新高 权重股仍看好</li>
-    <li >沪指创两年新高 权重股仍看好</li>
-  </ul>
-</div>
-<div class="mainCard">
-  <h2>期货</h2><hr/>
-  <ul>
-    <li >沪指创两年新高 权重股仍看好</li>
-    <li >沪指创两年新高 权重股仍看好</li>
-    <li >沪指创两年新高 权重股仍看好</li>
-    <li >沪指创两年新高 权重股仍看好</li>
-    <li >沪指创两年新高 权重股仍看好</li>
-    <li >沪指创两年新高 权重股仍看好</li>
-    <li >沪指创两年新高 权重股仍看好</li>
-    <li >沪指创两年新高 权重股仍看好</li>
-  </ul>
-</div>
-<div class="mainCard">
-  <h2>外汇</h2><hr/>
-  <ul>
-    <li >沪指创两年新高 权重股仍看好</li>
-    <li >沪指创两年新高 权重股仍看好</li>
-    <li >沪指创两年新高 权重股仍看好</li>
-    <li >沪指创两年新高 权重股仍看好</li>
-    <li >沪指创两年新高 权重股仍看好</li>
-    <li >沪指创两年新高 权重股仍看好</li>
-    <li >沪指创两年新高 权重股仍看好</li>
-    <li >沪指创两年新高 权重股仍看好</li>
-  </ul>
-</div>
-<div class="mainCard">
-  <h2>债券</h2><hr/>
-  <ul>
-    <li >沪指创两年新高 权重股仍看好</li>
-    <li >沪指创两年新高 权重股仍看好</li>
-    <li >沪指创两年新高 权重股仍看好</li>
-    <li >沪指创两年新高 权重股仍看好</li>
-    <li >沪指创两年新高 权重股仍看好</li>
-    <li >沪指创两年新高 权重股仍看好</li>
-    <li >沪指创两年新高 权重股仍看好</li>
-    <li >沪指创两年新高 权重股仍看好</li>
-  </ul>
-</div>
+<div class="content">
+  <div class="mainCard">
+    <h1>股票</h1><hr/>
+    <ul>
+      <li >沪指创两年新高 权重股仍看好</li>
+      <li >沪指创两年新高 权重股仍看好</li>
+      <li >沪指创两年新高 权重股仍看好</li>
+      <li >沪指创两年新高 权重股仍看好</li>
+      <li >沪指创两年新高 权重股仍看好</li>
+    </ul>
+  </div>
+  <div class="mainCard">
+    <h1>基金</h1><hr/>
+    <ul>
+      <li >沪指创两年新高 权重股仍看好</li>
+      <li >沪指创两年新高 权重股仍看好</li>
+      <li >沪指创两年新高 权重股仍看好</li>
+      <li >沪指创两年新高 权重股仍看好</li>
+      <li >沪指创两年新高 权重股仍看好</li>
+    </ul>
+  </div>
+  <div class="mainCard">
+    <h1>期货</h1><hr/>
+    <ul>
+      <li >沪指创两年新高 权重股仍看好</li>
+      <li >沪指创两年新高 权重股仍看好</li>
+      <li >沪指创两年新高 权重股仍看好</li>
+      <li >沪指创两年新高 权重股仍看好</li>
+      <li >沪指创两年新高 权重股仍看好</li>
+    </ul>
+  </div>
+  <div class="mainCard">
+    <h1>外汇</h1><hr/>
+    <ul>
+      <li >沪指创两年新高 权重股仍看好</li>
+      <li >沪指创两年新高 权重股仍看好</li>
+      <li >沪指创两年新高 权重股仍看好</li>
+      <li >沪指创两年新高 权重股仍看好</li>
+      <li >沪指创两年新高 权重股仍看好</li>
+    </ul>
+  </div>
+  <div class="mainCard">
+    <h1>债券</h1><hr/>
+    <ul>
+      <li >沪指创两年新高 权重股仍看好</li>
+      <li >沪指创两年新高 权重股仍看好</li>
+      <li >沪指创两年新高 权重股仍看好</li>
+      <li >沪指创两年新高 权重股仍看好</li>
+      <li >沪指创两年新高 权重股仍看好</li>
+    </ul>
+  </div>
+   <div class="mainCard">
+    <h1>热搜榜</h1><hr/>
+    <ul>
+      <li >沪指创两年新高 权重股仍看好</li>
+      <li >沪指创两年新高 权重股仍看好</li>
+      <li >沪指创两年新高 权重股仍看好</li>
+      <li >沪指创两年新高 权重股仍看好</li>
+      <li >沪指创两年新高 权重股仍看好</li>
+    </ul>
+  </div>
+</div>  
 
   </div>
   <div class="footer">
+     <div class="footer_nav">
+       <img src="/webDesign/Public/img/title.jpg">
+       <span>悟空资讯</span>
+       <h2>投资有风险，理财需谨慎</h2>
+     </div>
   </div>  
   </body>
 </html>

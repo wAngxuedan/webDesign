@@ -1,0 +1,40 @@
+<layout name='lay'/>
+<div class="contain">
+<form class="searchframe" action="" method="POST">
+	  <div class="inputframe">
+	    <input type="text" class="form-control">
+	    <i class="icon-search "></i>
+	  </div>
+</form>
+	<div class="table-responsive" >
+		<table class="table table-bordered  table-hover">
+		    <thead>
+		      <tr class="table-primary">
+		        <th>#</th>
+		        <th>account</th>
+		        <th>username</th>
+		        <th>phone</th>
+		        <th>mail</th>
+		        <th>Sex</th>
+		        <th>operation</th>
+			  </tr>
+			 </thead>
+		    <tbody>	
+                 <volist name="user" id="vo" key="i">
+                    <tr>
+                    	<td>{$i}</td>
+                    	<td>{$vo.account}</td>
+                    	<td>{$vo.username}</td>
+                    	<td>{$vo.phone}</td>
+                    	<td>{$vo.mail}</td>
+                    	<td>{$vo.sex}</td>
+                    	<td>
+                    		<button type="button" class="btn btn-primary">修改</button>
+                    		<button type="button" class="btn btn-danger">删除</button>
+                    	</td>
+                    </tr>
+                 </volist>		
+		    </tbody>
+		</table>
+	</div>
+</div>
