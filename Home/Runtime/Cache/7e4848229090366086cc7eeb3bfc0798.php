@@ -116,7 +116,7 @@
               <br/>
               <div class="form-control sex">
                 <span>性别：<span>
-                <input type="radio" name="sex"  value="1" checked><span>男</span>
+                <input type="radio" name="sex"  value="1" checked><span>男</span>&nbsp&nbsp
                 <input type="radio" name="sex"  value="0"><span>女</span>
               </div>
               <br/>

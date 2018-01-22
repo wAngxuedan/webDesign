@@ -15,26 +15,67 @@
 		        <th>username</th>
 		        <th>phone</th>
 		        <th>mail</th>
-		        <th>Sex</th>
+		        <th>sex</th>
 		        <th>operation</th>
 			  </tr>
 			 </thead>
 		    <tbody>	
-                 <volist name="user" id="vo" key="i">
-                    <tr>
-                    	<td>{$i}</td>
-                    	<td>{$vo.account}</td>
-                    	<td>{$vo.username}</td>
-                    	<td>{$vo.phone}</td>
-                    	<td>{$vo.mail}</td>
-                    	<td>{$vo.sex}</td>
-                    	<td>
-                    		<button type="button" class="btn btn-primary">修改</button>
-                    		<button type="button" class="btn btn-danger">删除</button>
-                    	</td>
-                    </tr>
-                 </volist>		
+           <volist name="user" id="vo" key="i">
+              <tr>
+              	<td>{$i}</td>
+              	<td class="account{$i}">{$vo.account}</td>
+              	<td class="username{$i}">{$vo.username}</td>
+              	<td class="phone{$i}">{$vo.phone}</td>
+              	<td class="mail{$i}">{$vo.mail}</td>
+                <if condition="$vo.sex eq 0">
+                  <td class="sex{$i}">女</td>
+              	<else /><td class="sex{$i}">男</td>
+              	</if>
+              
+              	<td>
+              		<button type="button" class="btn btn-primary" onclick="setItem({$i})" data-toggle="modal" data-target="#myModal3">修改</button>
+              		<button type="button" class="btn btn-danger">删除</button>
+              	</td>
+              </tr>
+           </volist>		
 		    </tbody>
 		</table>
 	</div>
 </div>
+   <!-- 修改用户信息模态框 -->
+    <div class="modal fade" id="myModal3">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- 模态框头部 -->
+          <div class="modal-header">
+            <h4 class="modal-title">修改用户信息</h4>
+            <!-- <h6 class="tip">没有账号？<span>点击注册</span></h6> -->
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <!-- 模态框主体 -->
+          <div class="modal-body">
+            <form class="form-register" action="__APP__/User/changeUserInfo" method="post">
+              <input type="text" name="account" id="account3" class="form-control" placeholder="account" required autofocus>
+              <br/>
+              <input type="text" name="username" id="username3" class="form-control" placeholder="username" required >
+              <br/>
+              <div class="form-control sex">
+                <span>性别：<span>
+                <input type="radio" name="sex"  value="1" checked><span>男</span>&nbsp&nbsp
+                <input type="radio" name="sex"  value="0"><span>女</span>
+              </div>
+              <br/>
+              <input type="text" name="phone" id="phone3" class="form-control" placeholder="phone" required>
+              <br/>
+              <input type="e-mail" name="mail" id="mail3" class="form-control" placeholder="e-mail" required>
+              <br/>
+              <input type="submit" class="btn btn-lg btn-primary " id="changeUserBtn" value="确认修改">
+            </form>
+          </div>
+          <!-- 模态框底部 -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+          </div>
+        </div>
+      </div>
+    </div>
