@@ -1,9 +1,9 @@
 <layout name='lay'/>
 <div class="contain">
-<form class="searchframe" action="" method="POST">
+<form class="searchframe" action="__APP__/User/search" method="POST">
 	  <div class="inputframe">
-	    <input type="text" class="form-control">
-	    <i class="icon-search "></i>
+	    <input type="text" name="condition" class="form-control"  placeholder="account/username" />
+      <button class="btn btn-info"><i class="icon-search " ></i></button>
 	  </div>
 </form>
 	<div class="table-responsive" >
@@ -17,8 +17,8 @@
 		        <th>mail</th>
 		        <th>sex</th>
 		        <th>operation</th>
-			  </tr>
-			 </thead>
+			    </tr>
+			  </thead>
 		    <tbody>	
            <volist name="user" id="vo" key="i">
               <tr>
@@ -31,15 +31,15 @@
                   <td class="sex{$i}">女</td>
               	<else /><td class="sex{$i}">男</td>
               	</if>
-              
               	<td>
               		<button type="button" class="btn btn-primary" onclick="setItem({$i})" data-toggle="modal" data-target="#myModal3">修改</button>
               		<button type="button" class="btn btn-danger">删除</button>
               	</td>
               </tr>
-           </volist>		
+           </volist>	
 		    </tbody>
 		</table>
+    {$show} 
 	</div>
 </div>
    <!-- 修改用户信息模态框 -->
