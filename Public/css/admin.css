@@ -9,3 +9,4 @@ body{font-size: 62.5%;}
 .form-control,#changeUserBtn{width:70%;margin: auto;display: block;}
 #verifyCode3{border:0px;width:80%;}
 #verifyCode3 img{position: absolute;right: 0px;}
+.pageInfo{float: right;}

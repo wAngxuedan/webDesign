@@ -76,12 +76,14 @@
               	<?php else: ?><td class="sex<?php echo ($i); ?>">男</td><?php endif; ?>
               	<td>
               		<button type="button" class="btn btn-primary" onclick="setItem(<?php echo ($i); ?>)" data-toggle="modal" data-target="#myModal3">修改</button>
-              		<button type="button" class="btn btn-danger">删除</button>
+              		<button type="button" class="btn btn-danger" onclick="deleteUser(<?php echo ($vo["id"]); ?>)">删除</button>&nbsp&nbsp 
+                  <input type="checkbox" name="indexUser" value="<?php echo ($vo["id"]); ?>" />
               	</td>
               </tr><?php endforeach; endif; else: echo "" ;endif; ?>	
 		    </tbody>
 		</table>
-    <?php echo ($show); ?> 
+    <button type="button" class="btn btn-danger" onclick="muldelete()" >批量删除</button>
+    <div class="pageInfo"><?php echo ($show); ?> </div>
 	</div>
 </div>
    <!-- 修改用户信息模态框 -->
@@ -116,7 +118,7 @@
           </div>
           <!-- 模态框底部 -->
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
           </div>
         </div>
       </div>

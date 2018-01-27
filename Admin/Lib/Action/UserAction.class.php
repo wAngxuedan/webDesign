@@ -12,6 +12,7 @@ class UserAction extends Action {
         $this->assign('show',$show);
         $this->display();
     } 
+    // 修改用户信息
     public function changeUserInfo(){ 
        // 获取前台数据
        $acc=$_POST['account'];
@@ -30,6 +31,7 @@ class UserAction extends Action {
          	  $this->error('修改用户信息失败');
          	}
     }
+    // 通过用户名或者账号搜索用户
     public function search(){
       $string=$_POST['condition'];
       $m=M('User');
@@ -43,5 +45,31 @@ class UserAction extends Action {
       $this->assign('user',$result);
       $this->assign('show',$show);
       $this->display();
+    }
+    // 删除单个用户数据
+    public function delete(){
+      $id=$_GET['id'];
+      $m=M('User');
+      $result=$m->delete($id);
+      if($result>0){
+        $this->success("删除成功");
+      }
+      else{
+        $this->error("删除失败");
+      }
+    }
+    // 批量删除用户数据
+    public function muldelete(){
+      $array=json_decode(stripslashes($_GET['checked']));
+      $m=M("User");
+      if(count($array)>0){
+        for ($i=0;$i<=count($array);$i++) {
+           $m->delete($array[$i]);
+        }
+          $this->success("批量删除成功");
+      }
+      else{
+          $this->error("请先选择要删除的内容");
+      }
     }
 }
