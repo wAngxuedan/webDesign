@@ -27,10 +27,10 @@
           </li>
           <p>&nbsp&nbsp&nbsp</p>
           <li class="nav-item ">
-            <a class="nav-link active" href="#" >用户管理</a>
+            <a class="nav-link active" href="__APP__/User/index" >用户管理</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">咨讯管理</a>
+            <a class="nav-link" href="__APP__/Info/index">咨讯管理</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">管理员管理</a>
@@ -75,14 +75,14 @@
                 <?php if($vo["sex"] == 0): ?><td class="sex<?php echo ($i); ?>">女</td>
               	<?php else: ?><td class="sex<?php echo ($i); ?>">男</td><?php endif; ?>
               	<td>
-              		<button type="button" class="btn btn-primary" onclick="setItem(<?php echo ($i); ?>)" data-toggle="modal" data-target="#myModal3">修改</button>
+              		<button type="button" class="btn btn-primary" onclick="setUserItem(<?php echo ($i); ?>)" data-toggle="modal" data-target="#myModal3">修改</button>
               		<button type="button" class="btn btn-danger" onclick="deleteUser(<?php echo ($vo["id"]); ?>)">删除</button>&nbsp&nbsp 
                   <input type="checkbox" name="indexUser" value="<?php echo ($vo["id"]); ?>" />
               	</td>
               </tr><?php endforeach; endif; else: echo "" ;endif; ?>	
 		    </tbody>
 		</table>
-    <button type="button" class="btn btn-danger" onclick="muldelete()" >批量删除</button>
+    <button type="button" class="btn btn-danger" onclick="muldeleteUser()" >批量删除</button>
     <div class="pageInfo"><?php echo ($show); ?> </div>
 	</div>
 </div>
@@ -98,7 +98,7 @@
           </div>
           <!-- 模态框主体 -->
           <div class="modal-body">
-            <form class="form-register" action="__APP__/User/changeUserInfo" method="post">
+            <form  action="__APP__/User/changeUserInfo" method="post">
               <input type="text" name="account" id="account3" class="form-control" placeholder="account" required autofocus>
               <br/>
               <input type="text" name="username" id="username3" class="form-control" placeholder="username" required >

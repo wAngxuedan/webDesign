@@ -2,15 +2,14 @@
 header("Content-Type:text/html; charset=utf-8");
 import('ORG.Util.Page');
 class UserAction extends Action {
-    public function index(){
-        $m=M('User');
+    public function index(){$m=M('User');
         $count=$m->count();
         $Page=new Page($count,10);
         $show=$Page->show();
         $array=$m->limit($Page->firstRow.','.$Page->listRows)->select();
         $this->assign('user',$array);
         $this->assign('show',$show);
-        $this->display();
+        $this->display();  
     } 
     // 修改用户信息
     public function changeUserInfo(){ 
