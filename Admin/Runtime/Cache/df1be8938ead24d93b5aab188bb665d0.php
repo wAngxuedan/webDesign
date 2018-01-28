@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html>
   <head>
     <title>悟空咨讯</title>
@@ -44,7 +44,41 @@
       </ul>
      </nav>   
    </div>
-    {__CONTENT__}
+    
+	<div class="contain">
+		<form class="searchframe" action="__APP__/Manager/search" method="POST">
+			  <div class="inputframe">
+			    <input type="text" name="condition" class="form-control"  placeholder="m_id/account" />
+		      <button class="btn btn-info"><i class="icon-search " ></i></button>
+			  </div>			  
+		</form>
+		<div class="table-responsive" >
+		<table class="table table-bordered  table-hover">
+		    <thead>
+		      <tr class="table-primary">
+		        <th>m_id</th>
+		        <th>account</th>
+		        <th>rang</th>
+		        <th></th>
+			    </tr>
+			  </thead>
+		    <tbody>	
+           <?php if(is_array($manager)): $i = 0; $__LIST__ = $manager;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
+              	<td class="mid<?php echo ($i); ?>"><?php echo ($vo["m_id"]); ?></td>
+              	<td class="maccount<?php echo ($i); ?>"><?php echo ($vo["account"]); ?></td>
+              	<td class="time<?php echo ($i); ?>"><?php echo ($vo["rang"]); ?></td>
+              	<td>
+              		<button type="button" class="btn btn-primary" onclick="setInfoItem(<?php echo ($i); ?>)" data-toggle="modal" data-target="#myModal6">修改</button>
+              		<button type="button" class="btn btn-danger" onclick="deleteManager(<?php echo ($vo["m_id"]); ?>)">删除</button>&nbsp&nbsp 
+                    <input type="checkbox" name="indexInfo" value="<?php echo ($vo["m_id"]); ?>" />
+              	</td>
+              </tr><?php endforeach; endif; else: echo "" ;endif; ?>	
+		    </tbody>
+		</table>
+	    <button type="button" class="btn btn-danger" onclick="muldeleteManager()" >批量删除</button>
+	    <div class="pageInfo"><?php echo ($show); ?> </div>
+  	</div>
+  </div>
   
 </body>
 </html>

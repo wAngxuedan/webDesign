@@ -33,7 +33,7 @@
             <a class="nav-link" href="__APP__/Info/index">咨讯管理</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">管理员管理</a>
+            <a class="nav-link" href="__APP__/Manager/index">管理员管理</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">评论管理</a>
@@ -113,7 +113,7 @@
               <br/>
               <input type="e-mail" name="mail" id="mail3" class="form-control" placeholder="e-mail" required>
               <br/>
-              <input type="submit" class="btn btn-lg btn-primary " id="changeUserBtn" value="确认修改">
+              <input type="submit" class="btn btn-lg btn-primary changeBtn"   value="确认修改">
             </form>
           </div>
           <!-- 模态框底部 -->

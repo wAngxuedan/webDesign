@@ -33,7 +33,7 @@
             <a class="nav-link" href="__APP__/Info/index">咨讯管理</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">管理员管理</a>
+            <a class="nav-link" href="__APP__/Manager/index">管理员管理</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">评论管理</a>
@@ -85,8 +85,8 @@
 			</table>
 		    <button type="button" class="btn btn-danger" onclick="muldeleteInfo()" >批量删除</button>
 		    <div class="pageInfo"><?php echo ($show); ?> </div>
-		</div>
-	</div>
+	  	</div>
+	  </div>
       <!-- 添加咨讯模态框 -->
       <div class="modal fade" id="myModal4">
         <div class="modal-dialog">
@@ -108,7 +108,7 @@
                 <br/>
                 <input type="text" name="from" class="form-control" placeholder="from" required>
                 <br/>
-                <input type="submit" class="btn btn-lg btn-primary " id="addInfoBtn" value="确认添加">
+                <input type="submit" class="btn btn-lg btn-primary " class="addBtn" value="确认添加">
                 <br/>
               </form>
              </div>
@@ -126,7 +126,6 @@
             <!-- 模态框头部 -->
             <div class="modal-header">
               <h4 class="modal-title">修改咨讯</h4>
-              <!-- <h6 class="tip">没有账号？<span>点击注册</span></h6> -->
               <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <!-- 模态框主体 -->
@@ -142,7 +141,7 @@
                 <br/>
                 <input type="text" name="from" id="from5" class="form-control" placeholder="from" required>
                 <br/>
-                <input type="submit" class="btn btn-lg btn-primary " id="changeInfoBtn" value="确认修改">
+                <input type="submit" class="btn btn-lg btn-primary " class="changeBtn"  value="确认修改">
                 <br/>
               </form> 
             </div>	

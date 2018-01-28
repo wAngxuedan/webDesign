@@ -1,0 +1,94 @@
+<layout name='lay'/>
+	<div class="contain">
+		<form class="searchframe" action="__APP__/Manager/search" method="POST">
+			  <div class="inputframe">
+			    <input type="text" name="condition" class="form-control"  placeholder="m_id/account" />
+		      <button class="btn btn-info"><i class="icon-search " ></i></button>
+			  </div>			  
+		</form>
+		<button class="btn btn-info addInfo"  data-toggle="modal" data-target="#myModal7">添加管理员</button>			
+		<div class="table-responsive" >
+		<table class="table table-bordered  table-hover">
+		    <thead>
+		      <tr class="table-primary">
+		        <th>m_id</th>
+		        <th>account</th>
+		        <th>rang</th>
+		        <th></th>
+			    </tr>
+			  </thead>
+		    <tbody>	
+           <volist name="manager" id="vo" key="i">
+              <tr>
+              	<td class="mid{$i}">{$vo.m_id}</td>
+              	<td >{$vo.account}</td>
+              	<td class="mrange{$i}">{$vo.range}</td>
+              	<td>
+              		<button type="button" class="btn btn-primary" onclick="setInfoItem({$i})" data-toggle="modal" data-target="#myModal6">修改权限</button>
+              		<button type="button" class="btn btn-danger" onclick="deleteManager({$vo.m_id})">删除</button>&nbsp&nbsp 
+                    <input type="checkbox" name="indexManager" value="{$vo.m_id}" />
+              	</td>
+              </tr>
+           </volist>	
+		    </tbody>
+		</table>
+	    <button type="button" class="btn btn-danger" onclick="muldeleteManager()" >批量删除</button>
+	    <div class="pageInfo">{$show} </div>
+  	</div>
+  </div>
+    <!-- 修改管理员信息模态框 -->
+  <div class="modal fade" id="myModal6">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- 模态框头部 -->
+        <div class="modal-header">
+          <h4 class="modal-title">修改管理员信息</h4>
+          <!-- <h6 class="tip">没有账号？<span>点击注册</span></h6> -->
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <!-- 模态框主体 -->
+        <div class="modal-body">
+          <form  action="__APP__/Manager/change" method="post">
+            <input type="text" name="m_id" id="mid6" style="display:none">
+            <br/>
+            <input type="text" name="range" id="range6" class="form-control" placeholder="rang" required autofocus>
+            <br/>
+            <input type="submit" class="btn btn-lg btn-primary changeBtn"  value="确认修改">
+            <br/>
+          </form>
+         </div>
+        <!-- 模态框底部 -->
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!-- 添加管理员信息模态框 -->
+  <div class="modal fade" id="myModal7">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- 模态框头部 -->
+        <div class="modal-header">
+          <h4 class="modal-title">添加管理员</h4>
+          <!-- <h6 class="tip">没有账号？<span>点击注册</span></h6> -->
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <!-- 模态框主体 -->
+        <div class="modal-body">
+          <form  action="__APP__/Manager/add" method="post">
+            <input type="text" name="account" class="form-control" placeholder="account" required>
+            <br/>
+            <input type="text" name="range" class="form-control" placeholder="rang" required>
+            <br/>
+            <input type="submit" class="btn btn-lg btn-primary addBtn" value="确认添加">
+            <br/>
+          </form>
+         </div>
+        <!-- 模态框底部 -->
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+        </div>
+      </div>
+    </div>
+  </div>
