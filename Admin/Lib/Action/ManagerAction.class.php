@@ -55,31 +55,64 @@ class ManagerAction extends Action {
     }
      // 修改管理员信息
    public function change()
-   { 
-       $condition['m_id']=$_POST['m_id'];
-       $attr['range']=intval($_POST['range']);
-       $m=M("Manager");
-       $result=$m->where($condition)->save($attr);
-       if($result!==false){
-            $this->success('修改管理员权限成功');
-         }
-        else{
-            $this->error('修改管理员权限失败');
+   {   
+       // 首先获取当前管理员的权限
+       $m=M('Manager');
+       $condition['account']=cookie('manageraccount');
+       $range=$m->where($condition)->getField('range'); 
+       // 再获取被修改的管理员的权限
+       $condition1['m_id']=$_POST['m_id'];
+       $ranged=$m->where($condition1)->getField('range');
+       if($range<$ranged){
+          // 判断权限是否足够添加
+          if($range<$_POST['range']){
+             $attr['range']=$_POST['range'];
+             $result=$m->where($condition1)->save($attr);
+             if($result!==false){
+                  $this->success('修改管理员权限成功');
+               }
+              else{
+                  $this->error('修改管理员权限失败');
+                }
           }
+          else{
+              $this->error('无法修改成高过您的权限');
+          }
+       }
+       else{
+          $this->error('操作失败，您的权限不够高');
+       }   
     }
     // 添加管理员
      public function add()
    {
-       $attr['account']=$_POST['account'];
-       $attr['range']=$_POST['range'];
-       // 修改数据库
-       $m=M('Manager'); 
-       $result=$m->add($attr);
-       if($result){
-            $this->success('添加管理员成功');
-         }
-        else{
-            $this->error('添加管理员失败');
-          }
+      // 首先获取当前管理员的权限
+       $m=M('Manager');
+       $condition['account']=cookie('manageraccount');
+       $range=$m->where($condition)->getField('range'); 
+      // 判断要添加的管理员是不是已存在的用户
+       $account=$_POST['account'];
+       $condition1['account']=$account;
+       $m1=M('User');
+       if($m1->where($condition1)->count()==0)
+          $this->error('该用户不存在');
+       else{
+           // 判断权限是否足够添加
+           if($range<$_POST['range']){ 
+               // 修改数据库 
+               $attr['account']=$_POST['account'];
+               $attr['range']=$_POST['range'];
+               $result=$m->add($attr);
+               if($result){
+                    $this->success('添加管理员成功');
+                 }
+                else{
+                    $this->error('添加管理员失败');
+                  }
+            }    
+            else{
+                $this->error('您的权限无法执行该操作');
+            }
+        }
    }
 }

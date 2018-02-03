@@ -27,7 +27,7 @@
           </li>
           <p>&nbsp&nbsp&nbsp</p>
           <li class="nav-item ">
-            <a class="nav-link active" href="__APP__/User/index" >用户管理</a>
+            <a class="nav-link" href="__APP__/User/index" >用户管理</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="__APP__/Info/index">咨讯管理</a>
@@ -108,7 +108,7 @@
                 <br/>
                 <input type="text" name="from" class="form-control" placeholder="from" required>
                 <br/>
-                <input type="submit" class="btn btn-lg btn-primary " class="addBtn" value="确认添加">
+                <input type="submit" class="btn btn-lg btn-primary addBtn" value="确认添加">
                 <br/>
               </form>
              </div>
@@ -141,7 +141,7 @@
                 <br/>
                 <input type="text" name="from" id="from5" class="form-control" placeholder="from" required>
                 <br/>
-                <input type="submit" class="btn btn-lg btn-primary " class="changeBtn"  value="确认修改">
+                <input type="submit" class="btn btn-lg btn-primary changeBtn"  value="确认修改">
                 <br/>
               </form> 
             </div>	
@@ -152,7 +152,8 @@
           </div>
         </div>
       </div>
-
+  <!-- 自定义js文件 -->
+     <script src="/webDesign/Public/js/adminInfo.js"></script>
   
 </body>
 </html>

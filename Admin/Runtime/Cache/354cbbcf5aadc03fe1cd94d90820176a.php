@@ -27,7 +27,7 @@
           </li>
           <p>&nbsp&nbsp&nbsp</p>
           <li class="nav-item ">
-            <a class="nav-link active" href="__APP__/User/index" >用户管理</a>
+            <a class="nav-link" href="__APP__/User/index" >用户管理</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="__APP__/Info/index">咨讯管理</a>
@@ -136,6 +136,8 @@
       </div>
     </div>
   </div>
+<!-- 自定义js文件 -->
+ <script src="/webDesign/Public/js/adminManager.js"></script> 
   
 </body>
 </html>

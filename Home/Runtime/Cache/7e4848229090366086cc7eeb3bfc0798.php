@@ -14,6 +14,8 @@
     <script src="/webDesign/Public/bootstrap-4.0.0-beta.3-dist/js/jquery-3.2.1.js"></script>
     <!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
     <script src="/webDesign/Public/bootstrap-4.0.0-beta.3-dist/js/bootstrap.min.js"></script>
+    <!-- 自定义js文件 -->
+    <script src="/webDesign/Public/js/home.js"></script>
   </head>
   <body>
   <div class="body">
@@ -53,14 +55,18 @@
       </ul>
       <!-- 用户部分 -->
       <ul class="userbar">
-        <li class="user-item" >
-          <a class="user-link" href="/webDesign/admin.php/Index/index">后台入口</a>
-        </li>
+         <?php if($_COOKIE['manageraccount']!= null): ?><li class="user-item" >
+              <a class="user-link" href="/webDesign/admin.php/Index/index">后台</a>
+            </li><?php endif; ?>   
         <li class="nuser-item">
-          <a class="user-link" href="#" data-toggle="modal" data-target="#myModal2">注册</a>
+          <?php if($_COOKIE['username']!= null): ?><a class="user-link" href="#" onclick="logoff()">注销</a>
+           <?php else: ?>
+              <a class="user-link" href="#" data-toggle="modal" data-target="#myModal2">注册</a><?php endif; ?>  
         </li>
         <li class="user-item">
-          <a class="user-link" href="#" data-toggle="modal" data-target="#myModal1">登录</a>
+           <?php if($_COOKIE['username']!= null): ?><a class="user-link" href="#">hi,<?php echo (cookie('username')); ?></a>
+           <?php else: ?>
+              <a class="user-link" href="#" data-toggle="modal" data-target="#myModal1">登录</a><?php endif; ?>  
         </li>
       </ul>
     </nav>

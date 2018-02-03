@@ -14,6 +14,8 @@
     <script src="/webDesign/Public/bootstrap-4.0.0-beta.3-dist/js/jquery-3.2.1.js"></script>
     <!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
     <script src="/webDesign/Public/bootstrap-4.0.0-beta.3-dist/js/bootstrap.min.js"></script>
+    <!-- 自定义js文件 -->
+    <script src="/webDesign/Public/js/home.js"></script>
   </head>
   <body>
   <div class="body">
@@ -53,14 +55,24 @@
       </ul>
       <!-- 用户部分 -->
       <ul class="userbar">
-        <li class="user-item" >
-          <a class="user-link" href="/webDesign/admin.php/Index/index">后台入口</a>
-        </li>
+         <if condition="$Think.cookie.manageraccount neq null">
+            <li class="user-item" >
+              <a class="user-link" href="/webDesign/admin.php/Index/index">后台</a>
+            </li>
+         </if>   
         <li class="nuser-item">
-          <a class="user-link" href="#" data-toggle="modal" data-target="#myModal2">注册</a>
+          <if condition="$Think.cookie.username neq null">
+              <a class="user-link" href="#" onclick="logoff()">注销</a>
+           <else />
+              <a class="user-link" href="#" data-toggle="modal" data-target="#myModal2">注册</a>
+           </if>  
         </li>
         <li class="user-item">
-          <a class="user-link" href="#" data-toggle="modal" data-target="#myModal1">登录</a>
+           <if condition="$Think.cookie.username neq null">
+              <a class="user-link" href="#">hi,{$Think.cookie.username}</a>
+           <else />
+              <a class="user-link" href="#" data-toggle="modal" data-target="#myModal1">登录</a>  
+           </if>  
         </li>
       </ul>
     </nav>

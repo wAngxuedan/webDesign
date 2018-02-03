@@ -15,6 +15,14 @@ class UserAction extends Action {
        $condition['password'] = md5($password);
        $i=$m->where($condition)->count();
        if($i>0){
+        // 登录成功把username放在cookie里
+          $username=$m->where($condition)->getField('username'); 
+          cookie('username',$username,3600);
+          // 如果该用户是管理员，设置managername cookie
+          $m1=M('Manager');
+          $condition1['account']=$account;
+          if($m1->where($condition1)->count()>0)
+            cookie('manageraccount',$account,3600);
           $this->success("登录成功");
        }
        else{
@@ -49,8 +57,11 @@ class UserAction extends Action {
          }
         }
     }
-     public function test(){
-      $this->display();
+     public function logoff(){
+        cookie('username',null);
+        cookie('manageraccount',null);
+        $this->success("注销成功");
+
      }
 }
 
