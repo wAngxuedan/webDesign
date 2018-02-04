@@ -29,29 +29,51 @@ class ManagerAction extends Action {
     }
       // 删除单个管理员数据数据
     public function delete(){
-      $m_id=$_GET['m_id'];
-      $m=M('Manager');
-      $result=$m->delete($m_id);
-      if($result>0){
-        $this->success("删除成功");
-      }
-      else{
-        $this->error("删除失败");
-      }
+       // 首先获取当前管理员的权限
+       $m=M('Manager');
+       $condition['account']=cookie('manageraccount');
+       $range=$m->where($condition)->getField('range'); 
+       // 再获取被修改的管理员的权限
+       $condition1['m_id']=$_GET['m_id'];
+       $ranged=$m->where($condition1)->getField('range');
+       if($range<$ranged){
+          $m_id=$_GET['m_id'];
+          $result=$m->delete($m_id);
+          if($result>0){
+            $this->success("删除成功");
+          }
+          else{
+            $this->error("删除失败");
+          }
+       }
+       else{
+          $this->error('删除失败，您的权限不够高');
+       }
     }
       // 批量删除管理员数据
     public function muldelete(){
-      $array=json_decode(stripslashes($_GET['checked']));
-      $m=M("Manager");
-      if(count($array)>0){
-        for ($i=0;$i<=count($array);$i++) {
-           $m->delete($array[$i]);
-        }
-          $this->success("批量删除成功");
-      }
-      else{
-          $this->error("请先选择要删除的内容");
-      }
+      // 首先获取当前管理员的权限
+       $m=M('Manager');
+       $condition['account']=cookie('manageraccount');
+       $range=$m->where($condition)->getField('range'); 
+          $array=json_decode(stripslashes($_GET['checked']));
+          if(count($array)>0){
+            for ($i=0;$i<count($array);$i++) {
+               $condition1['m_id']=$array[$i];
+               $ranged=$m->where($condition1)->getField('range');
+               if($ranged<$range){
+                  $this->error('删除失败，您的权限不够高');
+                  break;
+               }
+            }
+            for ($i=0;$i<count($array);$i++) {
+               $m->delete($array[$i]);
+            }
+              $this->success("批量删除成功");
+          }
+          else{
+              $this->error("请先选择要删除的内容");
+          }
     }
      // 修改管理员信息
    public function change()

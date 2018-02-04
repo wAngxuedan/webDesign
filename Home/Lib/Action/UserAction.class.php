@@ -47,7 +47,7 @@ class UserAction extends Action {
        $condition['account']=$_POST['account']; 
        $i=$m->where($condition)->count();
        if($i>0){
-          $this->success("该账号已注册过了");
+          $this->error("该账号已注册过了");
        }else{
          if($m->add($attr)){
          	  $this->success('注册成功');
