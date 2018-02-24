@@ -29,64 +29,22 @@
 </div>
 <!-- 主体内容 -->
 <div class="content">
-  <div class="mainCard">
-    <h1>股票</h1><hr/>
-    <ul>
-      <li >沪指创两年新高 权重股仍看好</li>
-      <li >沪指创两年新高 权重股仍看好</li>
-      <li >沪指创两年新高 权重股仍看好</li>
-      <li >沪指创两年新高 权重股仍看好</li>
-      <li >沪指创两年新高 权重股仍看好</li>
-    </ul>
-  </div>
-  <div class="mainCard">
-    <h1>基金</h1><hr/>
-    <ul>
-      <li >沪指创两年新高 权重股仍看好</li>
-      <li >沪指创两年新高 权重股仍看好</li>
-      <li >沪指创两年新高 权重股仍看好</li>
-      <li >沪指创两年新高 权重股仍看好</li>
-      <li >沪指创两年新高 权重股仍看好</li>
-    </ul>
-  </div>
-  <div class="mainCard">
-    <h1>期货</h1><hr/>
-    <ul>
-      <li >沪指创两年新高 权重股仍看好</li>
-      <li >沪指创两年新高 权重股仍看好</li>
-      <li >沪指创两年新高 权重股仍看好</li>
-      <li >沪指创两年新高 权重股仍看好</li>
-      <li >沪指创两年新高 权重股仍看好</li>
-    </ul>
-  </div>
-  <div class="mainCard">
-    <h1>外汇</h1><hr/>
-    <ul>
-      <li >沪指创两年新高 权重股仍看好</li>
-      <li >沪指创两年新高 权重股仍看好</li>
-      <li >沪指创两年新高 权重股仍看好</li>
-      <li >沪指创两年新高 权重股仍看好</li>
-      <li >沪指创两年新高 权重股仍看好</li>
-    </ul>
-  </div>
-  <div class="mainCard">
-    <h1>债券</h1><hr/>
-    <ul>
-      <li >沪指创两年新高 权重股仍看好</li>
-      <li >沪指创两年新高 权重股仍看好</li>
-      <li >沪指创两年新高 权重股仍看好</li>
-      <li >沪指创两年新高 权重股仍看好</li>
-      <li >沪指创两年新高 权重股仍看好</li>
-    </ul>
-  </div>
+  <foreach name="kind" item="vo1" key="i">
+    <div class="mainCard">
+      <h1 href="{$vo1.kind_id}">{$vo1.kind_name}</h1><hr/>
+      <ul>
+        <foreach name="info[$i]" item="vo2" key="j">
+          <li data-toggle="tooltip" title="{$vo2.title}"><a href="{$vo2.info_id}">{$vo2['title']}</a></li>
+        </foreach>
+      </ul>
+    </div>
+  </foreach>
    <div class="mainCard">
     <h1>热搜榜</h1><hr/>
     <ul>
-      <li >沪指创两年新高 权重股仍看好</li>
-      <li >沪指创两年新高 权重股仍看好</li>
-      <li >沪指创两年新高 权重股仍看好</li>
-      <li >沪指创两年新高 权重股仍看好</li>
-      <li >沪指创两年新高 权重股仍看好</li>
+      <foreach name="info_order" item="vo3" key="j">
+          <li data-toggle="tooltip" title="{$vo3.title}"><a href="{$vo3.info_id}">{$vo3['title']}</a></li>
+      </foreach>
     </ul>
   </div>
 </div>  

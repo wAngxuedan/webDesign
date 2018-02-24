@@ -149,50 +149,6 @@
       </div>
     </div>
     
-<!-- 轮播 -->
-<div id="picture" class="carousel slide" data-ride="carousel">
-  <!-- 指示符 -->
-  <ul class="carousel-indicators">
-    <li data-target="#picture" data-slide-to="0" class="active"></li>
-    <li data-target="#picture" data-slide-to="1"></li>
-    <li data-target="#picture" data-slide-to="2"></li>
-  </ul>
-  <!-- 轮播图片 -->
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="https://static.runoob.com/images/mix/img_fjords_wide.jpg">
-    </div>
-    <div class="carousel-item">
-      <img src="https://static.runoob.com/images/mix/img_nature_wide.jpg">
-    </div>
-    <div class="carousel-item">
-      <img src="https://static.runoob.com/images/mix/img_mountains_wide.jpg">
-    </div>
-  </div>
-  <!-- 左右切换按钮 -->
-  <a class="carousel-control-prev" href="#picture" data-slide="prev">
-    <span class="carousel-control-prev-icon"></span>
-  </a>
-  <a class="carousel-control-next" href="#picture" data-slide="next">
-    <span class="carousel-control-next-icon"></span>
-  </a>
-</div>
-<!-- 主体内容 -->
-<div class="content">
-  <?php if(is_array($kind)): foreach($kind as $i=>$vo1): ?><div class="mainCard">
-      <h1 href="<?php echo ($vo1["kind_id"]); ?>"><?php echo ($vo1["kind_name"]); ?></h1><hr/>
-      <ul>
-        <?php if(is_array($info[$i])): foreach($info[$i] as $j=>$vo2): ?><li data-toggle="tooltip" title="<?php echo ($vo2["title"]); ?>"><a href="<?php echo ($vo2["info_id"]); ?>"><?php echo ($vo2['title']); ?></a></li><?php endforeach; endif; ?>
-      </ul>
-    </div><?php endforeach; endif; ?>
-   <div class="mainCard">
-    <h1>热搜榜</h1><hr/>
-    <ul>
-      <?php if(is_array($info_order)): foreach($info_order as $j=>$vo3): ?><li data-toggle="tooltip" title="<?php echo ($vo3["title"]); ?>"><a href="<?php echo ($vo3["info_id"]); ?>"><?php echo ($vo3['title']); ?></a></li><?php endforeach; endif; ?>
-    </ul>
-  </div>
-</div>  
-
   </div>
   <div class="footer">
      <div class="footer_nav">

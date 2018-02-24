@@ -27,9 +27,9 @@ class UserAction extends Action {
        }
        else{
           $this->error("用户名或者密码错误");
-       }
-      
+       }  
     }
+
     public function register(){
 	   // 获取前台传过来的用户名和密码，与数据库比对，看是否存在用户
        $attr['account']=$_POST['account'];
