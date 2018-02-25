@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?>  <!DOCTYPE html>
   <html>
     <head>
       <title>悟空咨讯</title>
@@ -55,24 +55,18 @@
         </ul>
         <!-- 用户部分 -->
         <ul class="userbar">
-           <if condition="$Think.cookie.manageraccount neq null">
-              <li class="user-item" >
+           <?php if($_COOKIE['manageraccount']!= null): ?><li class="user-item" >
                 <a class="user-link" href="/webDesign/admin.php/Index/index">后台</a>
-              </li>
-           </if>   
+              </li><?php endif; ?>   
           <li class="nuser-item">
-            <if condition="$Think.cookie.username neq null">
-                <a class="user-link" href="#" onclick="logoff()">注销</a>
-             <else />
-                <a class="user-link" href="#" data-toggle="modal" data-target="#myModal2">注册</a>
-             </if>  
+            <?php if($_COOKIE['username']!= null): ?><a class="user-link" href="#" onclick="logoff()">注销</a>
+             <?php else: ?>
+                <a class="user-link" href="#" data-toggle="modal" data-target="#myModal2">注册</a><?php endif; ?>  
           </li>
           <li class="user-item">
-             <if condition="$Think.cookie.username neq null">
-                <a class="user-link" href="#">hi,{$Think.cookie.username}</a>
-             <else />
-                <a class="user-link" href="#" data-toggle="modal" data-target="#myModal1">登录</a>  
-             </if>  
+             <?php if($_COOKIE['username']!= null): ?><a class="user-link" href="#">hi,<?php echo (cookie('username')); ?></a>
+             <?php else: ?>
+                <a class="user-link" href="#" data-toggle="modal" data-target="#myModal1">登录</a><?php endif; ?>  
           </li>
         </ul>
       </nav>
@@ -154,7 +148,17 @@
           </div>
         </div>
       </div>
-      {__CONTENT__}
+      
+
+<!-- 主体内容 -->
+<div class="content2">
+  <h1 class="kindName"><?php echo ($kind_name); ?></h1><hr/>
+  <?php if(is_array($info)): foreach($info as $key=>$vo): ?><div class="info">
+           <h3><a class="infoTitle" href=""><?php echo ($vo["title"]); ?></a></h3>
+           <p class="infoContent"><?php echo ($vo["content"]); ?></p>
+           <span><?php echo ($vo["from"]); ?></span>
+      </div><?php endforeach; endif; ?>
+</div>  
     </div>
     <div class="footer">
        <div class="footer_nav">

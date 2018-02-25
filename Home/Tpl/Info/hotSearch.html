@@ -1,0 +1,14 @@
+<layout name='layout'/>
+<!-- 主体内容 -->
+<div class="content2">
+  <h1 class="kindName">热搜榜</h1><hr/>
+  <foreach name="info" item="vo" >
+      <div class="info">
+           <h3><a class="infoTitle" href="">{$vo.title}</a></h3>
+           <p class="infoContent">{$vo.content}</p>
+           <span>{$vo.from}</span>
+           <span class="scanNumber">浏览数:{$vo.scanNumber}</span>
+      </div>
+  </foreach>
+  <div class="pageInfo">{$show} </div>
+</div>  

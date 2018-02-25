@@ -1,0 +1,13 @@
+<layout name='layout'/>
+
+<!-- 主体内容 -->
+<div class="content2">
+  <h1 class="kindName">{$kind_name}</h1><hr/>
+  <foreach name="info" item="vo" >
+      <div class="info">
+           <h3><a class="infoTitle" href="">{$vo.title}</a></h3>
+           <p class="infoContent">{$vo.content}</p>
+           <span>{$vo.from}</span>
+      </div>
+  </foreach>
+</div>  
