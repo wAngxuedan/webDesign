@@ -2,6 +2,7 @@
 header("Content-Type:text/html; charset=utf-8");
 import('ORG.Util.Page');
 class UserAction extends Action {
+  // 显示用户数据
     public function index(){
         $m=M('User');
         $count=$m->count();

@@ -48,8 +48,10 @@
           <!-- search框 -->
           <li class="nav-item searchframe">
             <div class="inputframe">
-              <input type="text" class="form-control">
-              <i class="icon-search "></i>
+              <form action="__APP__/Info/search" method="POST">
+                <input type="text" class="form-control" placeholder="title" name="condition">
+                <button class="btn "><i class="icon-search " ></i></button>              
+              </form>
             </div>
           </li>
         </ul>
@@ -149,7 +151,6 @@
         </div>
       </div>
       
-
 <!-- 主体内容 -->
 <div class="content2">
   <h1 class="kindName"><?php echo ($kind_name); ?></h1><hr/>

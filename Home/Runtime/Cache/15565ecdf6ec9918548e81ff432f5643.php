@@ -153,12 +153,11 @@
       
 <!-- 主体内容 -->
 <div class="content2">
-  <h1 class="kindName">热搜榜</h1><hr/>
+  <h1 class="kindName">搜索结果</h1><hr/>
   <?php if(is_array($info)): foreach($info as $key=>$vo): ?><div class="info">
            <h3><a class="infoTitle" href=""><?php echo ($vo["title"]); ?></a></h3>
            <p class="infoContent"><?php echo ($vo["content"]); ?></p>
            <span><?php echo ($vo["from"]); ?></span>
-           <span class="scanNumber">浏览数:<?php echo ($vo["scanNumber"]); ?></span>
       </div><?php endforeach; endif; ?>
   <div class="pageInfo"><?php echo ($show); ?> </div>
 </div>  

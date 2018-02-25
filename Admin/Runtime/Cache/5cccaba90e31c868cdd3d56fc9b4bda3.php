@@ -108,6 +108,10 @@
                 <br/>
                 <input type="text" name="from" class="form-control" placeholder="from" required>
                 <br/>
+                <select class="form-control"  name="kind_id">
+                  <?php if(is_array($info_kind)): foreach($info_kind as $key=>$vo): ?><option  value="<?php echo ($vo["kind_id"]); ?>"><?php echo ($vo["kind_name"]); ?></option><?php endforeach; endif; ?>
+                </select>
+                <br/>
                 <input type="submit" class="btn btn-lg btn-primary addBtn" value="确认添加">
                 <br/>
               </form>

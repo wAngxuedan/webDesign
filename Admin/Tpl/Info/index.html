@@ -64,6 +64,12 @@
                 <br/>
                 <input type="text" name="from" class="form-control" placeholder="from" required>
                 <br/>
+                <select class="form-control"  name="kind_id">
+                  <foreach name="info_kind" item="vo">
+                    <option  value="{$vo.kind_id}">{$vo.kind_name}</option>
+                  </foreach>
+                </select>
+                <br/>
                 <input type="submit" class="btn btn-lg btn-primary addBtn" value="确认添加">
                 <br/>
               </form>

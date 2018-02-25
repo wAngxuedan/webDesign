@@ -2,6 +2,7 @@
 header("Content-Type:text/html; charset=utf-8");
 import('ORG.Util.Page');
 class InfoAction extends Action {
+	// 各类咨讯数据
     public function outline(){
     	$m1=M('Info_kind');
 	    $m2=M('Reflect');
@@ -21,6 +22,7 @@ class InfoAction extends Action {
         $this->assign('kind_name',$kind_name);
 	    $this->display();
     }
+    // 热搜榜数据
     public function hotSearch()
     {
     	$m=M('Info');
@@ -32,6 +34,32 @@ class InfoAction extends Action {
     	$this->assign('show',$show);
     	$this->display();
     }
+    // 查询功能
+    public function search(){
+      $string=$_POST['condition'];
+      if($string==""){
+      	 $this->error("请先输入你要查找的内容");
+      }
+      else{    
+	      $m=M('Info');
+	      $condition['title']=array('like',"%$string%");
+	      $count=$m->where($condition)->count();  
+	      if($count==0){
+	      	  $this->error("抱歉，没有找到你要的内容");
+	      }    
+	      else{
+		      $Page=new Page($count,8);
+		      $show=$Page->show();
+		      $result=$m->limit($Page->firstRow.','.$Page->listRows)->where($condition)->select();
+		      $this->assign('info',$result);
+		      $this->assign('show',$show);
+		      $this->display();
+	      }
+      }
+
+    }
+
+
 }
 
 ?>
