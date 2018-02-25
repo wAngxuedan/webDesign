@@ -23,33 +23,35 @@
       <nav class="navbar navbar-expand-sm bg-secondary navbar-dark">
         <!-- 分类导航 -->
         <ul class="navbar-nav">
-          <li class="nav-item ">
+          <li class="nav-item">
             <div class="nav-link logo" ></div>
           </li>
           <p>&nbsp&nbsp&nbsp</p>
-          <li class="nav-item ">
-            <a class="nav-link" href="__APP__/Info/gpoutline">股票</a>
+          <li class="nav-item">
+            <a class="nav-link" href="__APP__/Info/outline/info_kind/1">股票</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">基金</a>
+            <a class="nav-link" href="__APP__/Info/outline/info_kind/2">基金</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">期货</a>
+            <a class="nav-link" href="__APP__/Info/outline/info_kind/3">期货</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="#">外汇</a>
+            <a class="nav-link " href="__APP__/Info/outline/info_kind/4">外汇</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">债券</a>
+            <a class="nav-link" href="__APP__/Info/outline/info_kind/5">债券</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">热搜榜</a>
+            <a class="nav-link" href="__APP__/Info/hotSearch">热搜榜</a>
           </li>
           <!-- search框 -->
           <li class="nav-item searchframe">
             <div class="inputframe">
-              <input type="text" class="form-control">
-              <i class="icon-search "></i>
+              <form action="__APP__/Info/search" method="POST">
+                <input type="text" class="form-control" placeholder="title" name="condition">
+                <button class="btn "><i class="icon-search " ></i></button>              
+              </form>
             </div>
           </li>
         </ul>
@@ -148,7 +150,7 @@
           </div>
         </div>
       </div>
-      
+         
 <!-- 轮播 -->
 <div id="picture" class="carousel slide" data-ride="carousel">
   <!-- 指示符 -->
@@ -182,13 +184,13 @@
   <?php if(is_array($kind)): foreach($kind as $i=>$vo1): ?><div class="mainCard">
       <h1 ><a href="__APP__/Info/outline/info_kind/<?php echo ($vo1["kind_id"]); ?>"><?php echo ($vo1["kind_name"]); ?></a></h1><hr/>
       <ul>
-        <?php if(is_array($info[$i])): foreach($info[$i] as $j=>$vo2): ?><li data-toggle="tooltip" title="<?php echo ($vo2["title"]); ?>"><a href="<?php echo ($vo2["info_id"]); ?>"><?php echo ($vo2['title']); ?></a></li><?php endforeach; endif; ?>
+        <?php if(is_array($info[$i])): foreach($info[$i] as $j=>$vo2): ?><li data-toggle="tooltip" title="<?php echo ($vo2["title"]); ?>"><a href="__APP__/Info/infoDetail/info_id/<?php echo ($vo2["info_id"]); ?>"><?php echo ($vo2['title']); ?></a></li><?php endforeach; endif; ?>
       </ul>
     </div><?php endforeach; endif; ?>
    <div class="mainCard">
-    <h1>热搜榜</h1><hr/>
+    <h1><a href="__APP__/Info/hotSearch">热搜榜</a></h1><hr/>
     <ul>
-      <?php if(is_array($info_order)): foreach($info_order as $j=>$vo3): ?><li data-toggle="tooltip" title="<?php echo ($vo3["title"]); ?>"><a href="<?php echo ($vo3["info_id"]); ?>"><?php echo ($vo3['title']); ?></a></li><?php endforeach; endif; ?>
+      <?php if(is_array($info_order)): foreach($info_order as $j=>$vo3): ?><li data-toggle="tooltip" title="<?php echo ($vo3["title"]); ?>"><a href="__APP__/Info/infoDetail/info_id/<?php echo ($vo3["info_id"]); ?>"><?php echo ($vo3['title']); ?></a></li><?php endforeach; endif; ?>
     </ul>
   </div>
 </div>  

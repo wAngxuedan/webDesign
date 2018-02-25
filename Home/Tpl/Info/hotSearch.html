@@ -4,7 +4,7 @@
   <h1 class="kindName">热搜榜</h1><hr/>
   <foreach name="info" item="vo" >
       <div class="info">
-           <h3><a class="infoTitle" href="">{$vo.title}</a></h3>
+           <h3><a class="infoTitle" href="__APP__/Info/infoDetail/info_id/{$vo.info_id}">{$vo.title}</a></h3>
            <p class="infoContent">{$vo.content}</p>
            <span>{$vo.from}</span>
            <span class="scanNumber">浏览数:{$vo.scanNumber}</span>
@@ -12,3 +12,4 @@
   </foreach>
   <div class="pageInfo">{$show} </div>
 </div>  
+  

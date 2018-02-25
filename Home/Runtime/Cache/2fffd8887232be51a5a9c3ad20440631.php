@@ -151,16 +151,21 @@
         </div>
       </div>
          
-<!-- 主体内容 -->
 <div class="content2">
-  <h1 class="kindName"><?php echo ($kind_name); ?></h1><hr/>
-  <?php if(is_array($info)): foreach($info as $key=>$vo): ?><div class="info">
-           <h3><a class="infoTitle" href="__APP__/Info/infoDetail/info_id/<?php echo ($vo["info_id"]); ?>"><?php echo ($vo["title"]); ?></a></h3>
-           <p class="infoContent"><?php echo ($vo["content"]); ?></p>
-           <span><?php echo ($vo["from"]); ?></span>
-      </div><?php endforeach; endif; ?>
-</div> 
- 
+	<div class="infoDetail">
+	   <h1><a class="infoTitle" ><?php echo ($info["title"]); ?></a></h1>
+	   <h5><?php echo ($info["time"]); ?>&nbsp&nbsp&nbsp&nbsp<?php echo ($info["from"]); ?></h5>
+	   <p ><?php echo ($info["content"]); ?></p>
+	   <div class="commentFrame">
+	       <span>写评论</span>&nbsp&nbsp&nbsp
+	       <span>已有0条评论</span> 
+	       <br/>
+	       <textarea class="comment">
+	       </textarea>
+	       <button type="button" class="btn btn-info submitBtn">提交</button>
+	   </div>
+	</div>
+</div>  
     </div>
     <div class="footer">
        <div class="footer_nav">

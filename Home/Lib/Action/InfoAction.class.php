@@ -56,10 +56,15 @@ class InfoAction extends Action {
 		      $this->display();
 	      }
       }
-
     }
-
-
+    public function infoDetail(){
+        $info_id=$_GET['info_id'];
+        $condition['info_id']=$info_id;
+        $m=M('Info');
+        $info=$m->where($condition)->find();
+        $this->assign('info',$info);
+        $this->display();
+    }
 }
 
 ?>

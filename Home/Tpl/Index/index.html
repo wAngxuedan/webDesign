@@ -34,7 +34,7 @@
       <h1 ><a href="__APP__/Info/outline/info_kind/{$vo1.kind_id}">{$vo1.kind_name}</a></h1><hr/>
       <ul>
         <foreach name="info[$i]" item="vo2" key="j">
-          <li data-toggle="tooltip" title="{$vo2.title}"><a href="{$vo2.info_id}">{$vo2['title']}</a></li>
+          <li data-toggle="tooltip" title="{$vo2.title}"><a href="__APP__/Info/infoDetail/info_id/{$vo2.info_id}">{$vo2['title']}</a></li>
         </foreach>
       </ul>
     </div>
@@ -43,7 +43,7 @@
     <h1><a href="__APP__/Info/hotSearch">热搜榜</a></h1><hr/>
     <ul>
       <foreach name="info_order" item="vo3" key="j">
-          <li data-toggle="tooltip" title="{$vo3.title}"><a href="{$vo3.info_id}">{$vo3['title']}</a></li>
+          <li data-toggle="tooltip" title="{$vo3.title}"><a href="__APP__/Info/infoDetail/info_id/{$vo3.info_id}">{$vo3['title']}</a></li>
       </foreach>
     </ul>
   </div>

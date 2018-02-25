@@ -85,7 +85,7 @@ class InfoAction extends Action {
          }
         else{
          	  $this->error('添加咨讯失败');
-         	}
+        }
    }
    // 修改咨讯
    public function changeInfo()
