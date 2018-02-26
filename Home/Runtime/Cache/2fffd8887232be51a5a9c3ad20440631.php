@@ -155,12 +155,12 @@
 	<div class="infoDetail">
 	   <h1><a class="infoTitle" ><?php echo ($info["title"]); ?></a></h1>
 	   <h5><?php echo ($info["time"]); ?>&nbsp&nbsp&nbsp&nbsp<?php echo ($info["from"]); ?></h5>
-	   <p ><?php echo ($info["content"]); ?></p>
+	   <?php if(is_array($content)): foreach($content as $key=>$vo): ?><p><?php echo ($vo); ?></p><?php endforeach; endif; ?>
 	   <div class="commentFrame">
 	       <span>写评论</span>&nbsp&nbsp&nbsp
 	       <span>已有0条评论</span> 
 	       <br/>
-	       <textarea class="comment">
+	       <textarea class="comment" >
 	       </textarea>
 	       <button type="button" class="btn btn-info submitBtn">提交</button>
 	   </div>

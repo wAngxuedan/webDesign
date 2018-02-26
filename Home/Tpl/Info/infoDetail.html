@@ -3,12 +3,14 @@
 	<div class="infoDetail">
 	   <h1><a class="infoTitle" >{$info.title}</a></h1>
 	   <h5>{$info.time}&nbsp&nbsp&nbsp&nbsp{$info.from}</h5>
-	   <p >{$info.content}</p>
+	   <foreach name="content" item="vo">
+	   	   <p>{$vo}</p>
+	   </foreach>
 	   <div class="commentFrame">
 	       <span>写评论</span>&nbsp&nbsp&nbsp
 	       <span>已有0条评论</span> 
 	       <br/>
-	       <textarea class="comment">
+	       <textarea class="comment" >
 	       </textarea>
 	       <button type="button" class="btn btn-info submitBtn">提交</button>
 	   </div>

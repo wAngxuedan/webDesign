@@ -17,7 +17,6 @@ class InfoAction extends Action {
         	$array['info_id']=$info_id[$i]['info_id'];
         	$info[$i]=$m3->where($array)->find();
         }
-
         $this->assign('info',$info);
         $this->assign('kind_name',$kind_name);
 	    $this->display();
@@ -62,6 +61,8 @@ class InfoAction extends Action {
         $condition['info_id']=$info_id;
         $m=M('Info');
         $info=$m->where($condition)->find();
+        $content=explode("\n",$info['content']);
+        $this->assign('content',$content);
         $this->assign('info',$info);
         $this->display();
     }

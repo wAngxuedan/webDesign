@@ -42,8 +42,8 @@ hr{margin: 0px;}
 .scanNumber{float: right;}
 
 .infoDetail{font-size: 2em;padding: 40px;}
-.infoDetail h1,.infoDetail h5{text-align: center;padding-bottom: 10px;}
+.infoDetail h1,.infoDetail h5{text-align: center;padding-bottom: 10px;width: 80%;margin: 0 auto;}
 .infoDetail p,.commentFrame{width: 80%;margin:0 auto;}
-.commentFrame{margin-top: 20px;}
+.commentFrame{margin-top: 40px;margin-bottom: 40px;}
 .comment{width: 100%;}
 .submitBtn{float: right;}

@@ -9,7 +9,7 @@ class IndexAction extends Action {
      $kind=$m1->select();
       // 连接Reflect和Info表根据kind_id获取分类后的咨讯  
      for($i=1;$i<=5;$i++){
-     	$id_array=$m2->where('kind_id='.$i)->select();
+     	$id_array=$m2->where('kind_id='.$i)->limit(5)->select();
      	for($j=0;$j<count($id_array);$j++){
      		$condition['info_id']=$id_array[$j]['info_id'];
      		$info[$i-1][$j]=$m3->where($condition)->find();
