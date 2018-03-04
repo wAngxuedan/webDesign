@@ -4,15 +4,37 @@
 	   <h1><a class="infoTitle" >{$info.title}</a></h1>
 	   <h5>{$info.time}&nbsp&nbsp&nbsp&nbsp{$info.from}</h5>
 	   <foreach name="content" item="vo">
-	   	   <p>{$vo}</p>
+	   		<if  condition="$vo neq ''" >
+	   	   		<p>{$vo}</p>
+            <else />
+            	<br/>
+           	</if> 	
 	   </foreach>
+	   <!-- 提交评论区域 -->
 	   <div class="commentFrame">
 	       <span>写评论</span>&nbsp&nbsp&nbsp
 	       <span>已有0条评论</span> 
 	       <br/>
-	       <textarea class="comment" >
-	       </textarea>
-	       <button type="button" class="btn btn-info submitBtn">提交</button>
+	       <form action="__APP__/Info/comment" method="POST">
+	       	   <input name="info_id" value="{$info.info_id}"/ style="display:none">
+		       <textarea class="comment" name='comment'></textarea>
+		       <button type="submit" class="btn btn-info submitBtn">提交</button>
+	       </form>
 	   </div>
+	   <!-- 显示评论区域 -->
+	   <div class="commentList">
+	   	   	<h2>全部评论</h2><hr/>
+	   	 	<foreach name="commentList" item="vo">
+		   		<div class="commentDetail">	
+		   			<div class="commnetLeft">{$vo.username}:</div>
+		   			<div class="commnetRight">
+		   				<p data-toggle="tooltip" title="{$vo.com_content}">{$vo.com_content}</p>
+		   				<h6>{$vo.com_time}</h6>
+		   			</div>
+		   	    </div>
+	   		</foreach> 
+	   		<div class="pageInfo">{$show} </div>
+	   </div>
+	  
 	</div>
 </div>  

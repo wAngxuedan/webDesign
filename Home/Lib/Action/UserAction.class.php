@@ -18,12 +18,13 @@ class UserAction extends Action {
         // 登录成功把username放在cookie里
           $username=$m->where($condition)->getField('username'); 
           cookie('username',$username,3600);
+          cookie('account',$account,3600);
           // 如果该用户是管理员，设置managername cookie
           $m1=M('Manager');
           $condition1['account']=$account;
           if($m1->where($condition1)->count()>0)
             cookie('manageraccount',$account,3600);
-          $this->success("登录成功");
+            $this->success("登录成功");
        }
        else{
           $this->error("用户名或者密码错误");
@@ -58,7 +59,9 @@ class UserAction extends Action {
         }
     }
      public function logoff(){
+        // 将用户相关的所有cookie设为null
         cookie('username',null);
+        cookie('account',null);
         cookie('manageraccount',null);
         $this->success("注销成功");
 

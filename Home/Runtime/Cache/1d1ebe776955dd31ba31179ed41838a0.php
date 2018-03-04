@@ -24,7 +24,7 @@
         <!-- 分类导航 -->
         <ul class="navbar-nav">
           <li class="nav-item">
-            <div class="nav-link logo" ></div>
+            <a class="nav-link logo" href="__APP__"></a>
           </li>
           <p>&nbsp&nbsp&nbsp</p>
           <li class="nav-item">

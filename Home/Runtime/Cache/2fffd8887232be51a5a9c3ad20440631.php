@@ -24,7 +24,7 @@
         <!-- 分类导航 -->
         <ul class="navbar-nav">
           <li class="nav-item">
-            <div class="nav-link logo" ></div>
+            <a class="nav-link logo" href="__APP__"></a>
           </li>
           <p>&nbsp&nbsp&nbsp</p>
           <li class="nav-item">
@@ -63,12 +63,12 @@
           <li class="nuser-item">
             <?php if($_COOKIE['username']!= null): ?><a class="user-link" href="#" onclick="logoff()">注销</a>
              <?php else: ?>
-                <a class="user-link" href="#" data-toggle="modal" data-target="#myModal2">注册</a><?php endif; ?>  
+                <a class="user-link" href="#" data-toggle="modal" data-target="#myModal2" onclick="document.getElementById('img2').click()">注册</a><?php endif; ?>  
           </li>
           <li class="user-item">
              <?php if($_COOKIE['username']!= null): ?><a class="user-link" href="#">hi,<?php echo (cookie('username')); ?></a>
              <?php else: ?>
-                <a class="user-link" href="#" data-toggle="modal" data-target="#myModal1">登录</a><?php endif; ?>  
+                <a class="user-link" href="#" data-toggle="modal" data-target="#myModal1" onclick="document.getElementById('img1').click()">登录</a><?php endif; ?>  
           </li>
         </ul>
       </nav>
@@ -79,23 +79,23 @@
           <div class="modal-content">
             <!-- 模态框头部 -->
             <div class="modal-header">
-              <h4 class="modal-title">登录</h4>
+              <h4 class="modal-title" >登录</h4>
               <!-- <h6 class="tip">没有账号？<span>点击注册</span></h6> -->
               <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <!-- 模态框主体 -->
             <div class="modal-body">
-              <form class="form-signin" action="__APP__/User/login" method="Post">
+              <form class="form-signin" action="__APP__/User/login" method="Post" >
                 <input type="text" name="account"  class="form-control" placeholder="account" required autofocus>
                 <br/>
-                <input type="password" name="password" id="inputPassword1" class="form-control" placeholder="Password" required>
+                <input type="password" name="password" autocomplete="new-password" id="inputPassword1" class="form-control" placeholder="Password" required />
                 <br/>
                 <div class="form-control ">
-                  <input type="test" name="verifyCode" id="verifyCode1"  placeholder="verifyCode" required>
-                  <img src="__APP__/Public/code" onclick='this.src=this.src+"?"+Math.random' />
+                  <input type="test" name="verifyCode" id="verifyCode1"  placeholder="verifyCode" required />
+                  <img id="img1" src="__APP__/Public/code" onclick='this.src=this.src+"?"+Math.random' />
                 </div>
                 <br/>
-                <input type="submit" class="btn btn-lg btn-primary " id="loginBtn" value="登录">
+                <input type="submit" class="btn btn-lg btn-primary " id="loginBtn" value="登录" />
               </form>
             </div>
             <!-- 模态框底部 -->
@@ -106,7 +106,7 @@
         </div>
        </div> 
      <!-- 注册模态框 -->
-      <div class="modal fade" id="myModal2">
+      <div class="modal fade" id="myModal2" >
         <div class="modal-dialog">
           <div class="modal-content">
             <!-- 模态框头部 -->
@@ -117,30 +117,30 @@
             </div>
             <!-- 模态框主体 -->
             <div class="modal-body">
-              <form class="form-register" action="__APP__/User/register" method="post">
-                <input type="text" name="account"  class="form-control" placeholder="account" required autofocus>
+              <form class="form-register" action="__APP__/User/register" method="post" >
+                <input type="text" name="account"  class="form-control" placeholder="account" required autofocus />
                 <br/>
-                <input type="text" name="username" class="form-control" placeholder="username" required >
+                <input type="text" name="username"  class="form-control" placeholder="username" required />
                 <br/>
                 <div class="form-control sex">
                   <span>性别：<span>
-                  <input type="radio" name="sex"  value="1" checked><span>男</span>&nbsp&nbsp
-                  <input type="radio" name="sex"  value="0"><span>女</span>
+                  <input type="radio" name="sex"  value="1" checked /><span>男</span>&nbsp&nbsp
+                  <input type="radio" name="sex"  value="0" /><span>女</span>
                 </div>
                 <br/>
-                <input type="password" name="password" id="inputPassword2" class="form-control" placeholder="Password" required>
+                <input type="password" name="password" autocomplete="new-password" id="inputPassword2" class="form-control" placeholder="Password" required />
                 <br/>
-                <input type="text" name="phone"  class="form-control" placeholder="phone" required>
+                <input type="text" name="phone"  class="form-control" placeholder="phone" required />
                 <br/>
-                <input type="e-mail" name="mail"  class="form-control" placeholder="e-mail" required>
+                <input type="e-mail" name="mail"  class="form-control" placeholder="e-mail" required />
                 <br/>
                 <br/>
                 <div class="form-control ">
                   <input type="test" name="verifyCode" id="verifyCode2"  placeholder="verifyCode" required>
-                  <img src="__APP__/Public/code" onclick='this.src=this.src+"?"+Math.random' />
+                  <img id="img2" src="__APP__/Public/code" onclick='this.src=this.src+"?"+Math.random' />
                 </div>
                 <br/>
-                <input type="submit" class="btn btn-lg btn-primary " id="registerBtn" value="注册">
+                <input type="submit" class="btn btn-lg btn-primary " id="registerBtn" value="注册"  />
               </form>
             </div>
             <!-- 模态框底部 -->
@@ -155,15 +155,33 @@
 	<div class="infoDetail">
 	   <h1><a class="infoTitle" ><?php echo ($info["title"]); ?></a></h1>
 	   <h5><?php echo ($info["time"]); ?>&nbsp&nbsp&nbsp&nbsp<?php echo ($info["from"]); ?></h5>
-	   <?php if(is_array($content)): foreach($content as $key=>$vo): ?><p><?php echo ($vo); ?></p><?php endforeach; endif; ?>
+	   <?php if(is_array($content)): foreach($content as $key=>$vo): if($vo != ''): ?><p><?php echo ($vo); ?></p>
+            <?php else: ?>
+            	<br/><?php endif; endforeach; endif; ?>
+	   <!-- 提交评论区域 -->
 	   <div class="commentFrame">
 	       <span>写评论</span>&nbsp&nbsp&nbsp
 	       <span>已有0条评论</span> 
 	       <br/>
-	       <textarea class="comment" >
-	       </textarea>
-	       <button type="button" class="btn btn-info submitBtn">提交</button>
+	       <form action="__APP__/Info/comment" method="POST">
+	       	   <input name="info_id" value="<?php echo ($info["info_id"]); ?>"/ style="display:none">
+		       <textarea class="comment" name='comment'></textarea>
+		       <button type="submit" class="btn btn-info submitBtn">提交</button>
+	       </form>
 	   </div>
+	   <!-- 显示评论区域 -->
+	   <div class="commentList">
+	   	   	<h2>全部评论</h2><hr/>
+	   	 	<?php if(is_array($commentList)): foreach($commentList as $key=>$vo): ?><div class="commentDetail">	
+		   			<div class="commnetLeft"><?php echo ($vo["username"]); ?>:</div>
+		   			<div class="commnetRight">
+		   				<p data-toggle="tooltip" title="<?php echo ($vo["com_content"]); ?>"><?php echo ($vo["com_content"]); ?></p>
+		   				<h6><?php echo ($vo["com_time"]); ?></h6>
+		   			</div>
+		   	    </div><?php endforeach; endif; ?> 
+	   		<div class="pageInfo"><?php echo ($show); ?> </div>
+	   </div>
+	  
 	</div>
 </div>  
     </div>
