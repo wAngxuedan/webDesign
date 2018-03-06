@@ -21,8 +21,8 @@ hr{margin: 0px;}
 .inputframe input{float: left;width: 100%;}
 .inputframe button{display: inline-block;width: 15%;height:100%;position:absolute;right:0px;top: 0px;}
 
-#picture{position: relative;width: 60%;height:270px;margin: 0 auto;overflow: hidden;}
-#picture img{width: 100%;height:100%;}
+#picture{position: relative;width: 60%;margin: 0 auto;overflow: hidden;}
+#picture img{width: 100%;}
 
 .content1,.content2{display:inline-block;width: 60%;height: auto;margin-left:20% ;background-color: white;min-height: 850px;}
 .content1{margin-bottom: -4px;}
@@ -49,6 +49,7 @@ hr{margin: 0px;}
 .comment{width: 100%;}
 .submitBtn{float: right;}
 .commentList .pageInfo{font-size: 1em;}
+.commentList h2{color: blue}
 .commentDetail{width: 100%;margin:0 auto;border-bottom: 1px solid rgba(0,0,0,.3);float: left;height: 80px;}
 .commnetLeft{float: left;width: 10%;overflow: hidden;text-align: right;padding-right: 10px;}
 .commnetRight p{margin-bottom: 0px;height: 60px;overflow: hidden;width: 100%;font-size: 1em}

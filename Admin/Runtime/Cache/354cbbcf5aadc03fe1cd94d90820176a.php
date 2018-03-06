@@ -36,7 +36,7 @@
             <a class="nav-link" href="__APP__/Manager/index">管理员管理</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">评论管理</a>
+            <a class="nav-link" href="__APP__/Comment/index">评论管理</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/webDesign/index.php/Index/index.html">返回前台</a>
@@ -48,7 +48,7 @@
 	<div class="contain">
 		<form class="searchframe" action="__APP__/Manager/search" method="POST">
 			  <div class="inputframe">
-			    <input type="text" name="condition" class="form-control"  placeholder="m_id/account" />
+			    <input type="text" name="condition" class="form-control"  placeholder="用户id/账号" />
 		      <button class="btn btn-info"><i class="icon-search " ></i></button>
 			  </div>			  
 		</form>
@@ -57,9 +57,9 @@
 		<table class="table table-bordered  table-hover">
 		    <thead>
 		      <tr class="table-primary">
-		        <th>m_id</th>
-		        <th>account</th>
-		        <th>rang</th>
+		        <th>用户id</th>
+		        <th>账号</th>
+		        <th>权限等级</th>
 		        <th></th>
 			    </tr>
 			  </thead>
@@ -95,7 +95,7 @@
           <form  action="__APP__/Manager/change" method="post">
             <input type="text" name="m_id" id="mid6" style="display:none">
             <br/>
-            <input type="text" name="range" id="range6" class="form-control" placeholder="rang" required autofocus>
+            <input type="text" name="range" id="range6" class="form-control" placeholder="权限等级" required autofocus>
             <br/>
             <input type="submit" class="btn btn-lg btn-primary changeBtn"  value="确认修改">
             <br/>
@@ -121,9 +121,9 @@
         <!-- 模态框主体 -->
         <div class="modal-body">
           <form  action="__APP__/Manager/add" method="post">
-            <input type="text" name="account" class="form-control" placeholder="account" required>
+            <input type="text" name="account" class="form-control" placeholder="账号" required>
             <br/>
-            <input type="text" name="range" class="form-control" placeholder="rang" required>
+            <input type="text" name="range" class="form-control" placeholder="权限等级" required>
             <br/>
             <input type="submit" class="btn btn-lg btn-primary addBtn" value="确认添加">
             <br/>

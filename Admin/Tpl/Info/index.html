@@ -2,7 +2,7 @@
 	<div class="contain">
 		<form class="searchframe" action="__APP__/Info/search" method="POST">
 			  <div class="inputframe">
-			    <input type="text" name="condition" class="form-control"  placeholder="title" />
+			    <input type="text" name="condition" class="form-control"  placeholder="标题" />
 		      <button class="btn btn-info"><i class="icon-search " ></i></button>
 			  </div>			  
 		</form>
@@ -12,11 +12,11 @@
 			    <thead>
 			      <tr class="table-primary">
 			        <th>#</th>
-			        <th>title</th>
-			        <th>content</th>
-			        <th>time</th>
-			        <th>from</th>
-			        <th>scanNumber</th>
+			        <th>标题</th>
+			        <th>内容</th>
+			        <th>发布时间</th>
+			        <th>出处</th>
+			        <th>浏览数</th>
 			        <th></th>
 				    </tr>
 				  </thead>
@@ -56,13 +56,13 @@
             <!-- 模态框主体 -->
             <div class="modal-body">
               <form  action="__APP__/Info/add" method="post">
-                <input type="text" name="title"  class="form-control" placeholder="title" required autofocus>
+                <input type="text" name="title"  class="form-control" placeholder="标题" required autofocus>
                 <br/>
-                <textarea type="textarea" name="content"  class="form-control" placeholder="content" required ></textarea>
+                <textarea type="textarea" name="content"  class="form-control" placeholder="内容" required ></textarea>
                 <br/>
                 <input type="datetime" name="time"  class="form-control" placeholder="Y-M-D H:M:S" required>
                 <br/>
-                <input type="text" name="from" class="form-control" placeholder="from" required>
+                <input type="text" name="from" class="form-control" placeholder="出处" required>
                 <br/>
                 <select class="form-control"  name="kind_id">
                   <foreach name="info_kind" item="vo">
@@ -95,13 +95,13 @@
               <form action="__APP__/Info/changeInfo" method="post">
               	<input type="text" name="id" id="id5" style="display:none">
                 <br/>
-                <input type="text" name="title" id="title5" class="form-control" placeholder="title" required autofocus>
+                <input type="text" name="title" id="title5" class="form-control" placeholder="t标题" required autofocus>
                 <br/>
-                <textarea type="textarea" name="content" id="content5" class="form-control" placeholder="content" required ></textarea>
+                <textarea type="textarea" name="content" id="content5" class="form-control" placeholder="内容" required ></textarea>
                 <br/>
                 <input type="datetime" name="time" id="time5" class="form-control" placeholder="Y-M-D H:M:S" required>
                 <br/>
-                <input type="text" name="from" id="from5" class="form-control" placeholder="from" required>
+                <input type="text" name="from" id="from5" class="form-control" placeholder="出处" required>
                 <br/>
                 <input type="submit" class="btn btn-lg btn-primary changeBtn"  value="确认修改">
                 <br/>

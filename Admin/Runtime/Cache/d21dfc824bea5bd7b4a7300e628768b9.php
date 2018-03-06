@@ -36,7 +36,7 @@
             <a class="nav-link" href="__APP__/Manager/index">管理员管理</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">评论管理</a>
+            <a class="nav-link" href="__APP__/Comment/index">评论管理</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/webDesign/index.php/Index/index.html">返回前台</a>
@@ -48,7 +48,7 @@
 <div class="contain">
 <form class="searchframe" action="__APP__/User/search" method="POST">
 	  <div class="inputframe">
-	    <input type="text" name="condition" class="form-control"  placeholder="account/username" />
+	    <input type="text" name="condition" class="form-control"  placeholder="账号/用户名" />
       <button class="btn btn-info"><i class="icon-search " ></i></button>
 	  </div>
 </form>
@@ -57,12 +57,12 @@
 		    <thead>
 		      <tr class="table-primary">
 		        <th>#</th>
-		        <th>account</th>
-		        <th>username</th>
-		        <th>phone</th>
-		        <th>mail</th>
-		        <th>sex</th>
-		        <th>operation</th>
+		        <th>账号</th>
+		        <th>用户名</th>
+		        <th>手机</th>
+		        <th>邮箱</th>
+		        <th>性别</th>
+		        <th></th>
 			    </tr>
 			  </thead>
 		    <tbody>	
@@ -99,9 +99,9 @@
           <!-- 模态框主体 -->
           <div class="modal-body">
             <form  action="__APP__/User/changeUserInfo" method="post">
-              <input type="text" name="account" id="account3" class="form-control" placeholder="account" required autofocus>
+              <input type="text" name="account" id="account3" class="form-control" placeholder="账号" required autofocus>
               <br/>
-              <input type="text" name="username" id="username3" class="form-control" placeholder="username" required >
+              <input type="text" name="username" id="username3" class="form-control" placeholder="用户名" required >
               <br/>
               <div class="form-control sex">
                 <span>性别：<span>
@@ -109,9 +109,9 @@
                 <input type="radio" name="sex"  value="0"><span>女</span>
               </div>
               <br/>
-              <input type="text" name="phone" id="phone3" class="form-control" placeholder="phone" required>
+              <input type="text" name="phone" id="phone3" class="form-control" placeholder="手机" required>
               <br/>
-              <input type="e-mail" name="mail" id="mail3" class="form-control" placeholder="e-mail" required>
+              <input type="e-mail" name="mail" id="mail3" class="form-control" placeholder="邮箱" required>
               <br/>
               <input type="submit" class="btn btn-lg btn-primary changeBtn"   value="确认修改">
             </form>

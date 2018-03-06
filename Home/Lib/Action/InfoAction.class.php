@@ -89,6 +89,7 @@ class InfoAction extends Action {
                 // 获取资讯对应的评论
                 $commentList=$m2->limit($Page->firstRow.','.$Page->listRows)->where($condition)->select();
                 $content=explode("\n",$info['content']);
+                $this->assign('count',$count);
                 $this->assign('content',$content);
                 $this->assign('commentList',$commentList);
                 $this->assign('info',$info);

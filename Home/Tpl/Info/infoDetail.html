@@ -13,7 +13,7 @@
 	   <!-- 提交评论区域 -->
 	   <div class="commentFrame">
 	       <span>写评论</span>&nbsp&nbsp&nbsp
-	       <span>已有0条评论</span> 
+	       <span>已有{$count}条评论</span> 
 	       <br/>
 	       <form action="__APP__/Info/comment" method="POST">
 	       	   <input name="info_id" value="{$info.info_id}"/ style="display:none">
@@ -24,15 +24,18 @@
 	   <!-- 显示评论区域 -->
 	   <div class="commentList">
 	   	   	<h2>全部评论</h2><hr/>
-	   	 	<foreach name="commentList" item="vo">
-		   		<div class="commentDetail">	
-		   			<div class="commnetLeft">{$vo.username}:</div>
-		   			<div class="commnetRight">
-		   				<p data-toggle="tooltip" title="{$vo.com_content}">{$vo.com_content}</p>
-		   				<h6>{$vo.com_time}</h6>
-		   			</div>
-		   	    </div>
-	   		</foreach> 
+	   	   	<if condition="count neq 0">
+		   	 	<foreach name="commentList" item="vo">
+			   		<div class="commentDetail">	
+			   			<div class="commnetLeft">{$vo.username}:</div>
+			   			<div class="commnetRight">
+			   				<p data-toggle="tooltip" title="{$vo.com_content}">{$vo.com_content}</p>
+			   				<h6>{$vo.com_time}</h6>
+			   			</div>
+			   	    </div>
+		   		</foreach>  
+		   	<else /> <h4>暂无评论</h4>		
+	   		</if>
 	   		<div class="pageInfo">{$show} </div>
 	   </div>
 	  

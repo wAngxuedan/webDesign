@@ -3,7 +3,7 @@ header("Content-Type:text/html; charset=utf-8");
 import('ORG.Util.Page');
 class ManagerAction extends Action {
     public function index(){
-	 	$m=M('Manager');
+	 	    $m=M('Manager');
         $count=$m->count();
         $Page=new Page($count,10);
         $show=$Page->show();

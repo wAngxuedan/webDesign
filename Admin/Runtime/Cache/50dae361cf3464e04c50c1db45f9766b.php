@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html>
   <head>
     <title>悟空咨讯</title>
@@ -44,7 +44,46 @@
       </ul>
      </nav>   
    </div>
-    {__CONTENT__}
+    
+<div class="contain">
+<form class="searchframe" action="__APP__/Comment/search" method="POST">
+	  <div class="inputframe">
+	    <input type="text" name="condition" class="form-control"  placeholder="评论内容" />
+      <button class="btn btn-info"><i class="icon-search " ></i></button>
+	  </div>
+</form>
+	<div class="table-responsive" >
+		<table class="table table-bordered  table-hover">
+		    <thead>
+		      <tr class="table-primary">
+		        <th>#</th>
+		        <th >对应咨讯标题</th>
+		        <th >评论内容</th>
+		        <th >评论者</th>
+		        <th >评论时间</th>
+            <th ></th>
+			    </tr>
+			  </thead>
+		    <tbody>	
+           <?php if(is_array($comment)): $i = 0; $__LIST__ = $comment;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
+              	<td><?php echo ($i); ?></td>
+              	<td><textarea><?php echo ($title[$i-1]); ?></textarea></td>
+              	<td><textarea><?php echo ($vo["com_content"]); ?></textarea></td>
+              	<td><?php echo ($vo["username"]); ?></td>
+              	<td><?php echo ($vo["com_time"]); ?></td>
+              	<td>
+              		<button type="button" class="btn btn-danger" onclick="deleteComment(<?php echo ($vo["com_id"]); ?>)">删除</button>&nbsp&nbsp 
+                  <input type="checkbox" name="indexComment" value="<?php echo ($vo["com_id"]); ?>" />
+              	</td>
+              </tr><?php endforeach; endif; else: echo "" ;endif; ?>	
+		    </tbody>
+		</table>
+    <button type="button" class="btn btn-danger" onclick="muldeleteComment()" >批量删除</button>
+    <div class="pageInfo"><?php echo ($show); ?> </div>
+	</div>
+</div>
+<!-- 自定义js文件 -->
+ <script src="/webDesign/Public/js/adminComment.js"></script> 
   
 </body>
 </html>
