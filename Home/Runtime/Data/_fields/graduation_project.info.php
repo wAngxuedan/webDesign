@@ -1,0 +1,1 @@
+<?php	return array ( 0 => 'info_id', 1 => 'title', 2 => 'content', 3 => 'time', 4 => 'from', 5 => 'scanNumber', '_autoinc' => true, '_pk' => 'info_id', '_type' => array ( 'info_id' => 'int(16)', 'title' => 'varchar(40)', 'content' => 'text', 'time' => 'datetime', 'from' => 'varchar(16)', 'scanNumber' => 'int(16)', ), );?>

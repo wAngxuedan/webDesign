@@ -66,6 +66,7 @@ class InfoAction extends Action {
         $m2=M('Comment');
         $m3=M('Scan'); 
         $info_id=$_GET['info_id'];
+        $commentList=null;
         // 首先在scan表记录该次浏览记录
         if(cookie('account')){
             $array['account']=cookie('account');  

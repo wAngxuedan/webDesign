@@ -7,7 +7,7 @@ return array(
 	'DB_USER'=>'root',    //设置用户名
 	'DB_PWD'=>'root',        //设置密码
 	'DB_PORT'=>'3306',   //设置端口号
-	'SHOW_PAGE_TRACE'=>true,//开启页面Trace
+	'SHOW_PAGE_TRACE'=>false,//开启页面Trace
 	// 'LAYOUT_ON'=>true,//开启模板渲染
 );
 ?>

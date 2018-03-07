@@ -1,0 +1,1 @@
+<?php	return array ( 0 => 'kind_id', 1 => 'kind_name', '_autoinc' => true, '_pk' => 'kind_id', '_type' => array ( 'kind_id' => 'int(16)', 'kind_name' => 'varchar(16)', ), );?>
