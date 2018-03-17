@@ -10,6 +10,18 @@
             	<br/>
            	</if> 	
 	   </foreach>
+	   <div class="tips">
+	   	    <if condition="$Think.cookie.like eq 'yes'">
+            <span class="like"><i class="icon-heart" onclick="like({$info.info_id},'{$Think.cookie.account}')" style="color:red"></i><br/><span>点个赞</span></span>
+	   	    <else/>
+	   	    <span class="like"><i class="icon-heart" onclick="like({$info.info_id},'{$Think.cookie.account}')"></i><br/><span>点个赞</span></span>
+	   	    </if>
+	   		<if condition="$Think.cookie.collect eq 'yes'">
+            <span class="collect"><i class="icon-star" onclick="collect({$info.info_id},'{$Think.cookie.account}')" style="color:red"></i><br/><span>点个赞</span></span>
+	   	    <else/>
+	   	    <span class="collect"><i class="icon-star" onclick="collect({$info.info_id},'{$Think.cookie.account}')"></i><br/><span>点个赞</span></span>
+	   	    </if>
+	   </div>
 	   <!-- 提交评论区域 -->
 	   <div class="commentFrame">
 	       <span>写评论</span>&nbsp&nbsp&nbsp
@@ -17,7 +29,7 @@
 	       <br/>
 	       <form action="__APP__/Info/comment" method="POST">
 	       	   <input name="info_id" value="{$info.info_id}"/ style="display:none">
-		       <textarea class="comment" name='comment'></textarea>
+		       <textarea class="comment" name='comment' placeholder="说两句吧..."></textarea>
 		       <button type="submit" class="btn btn-info submitBtn">提交</button>
 	       </form>
 	   </div>
@@ -26,7 +38,7 @@
 	   	   	<h2>全部评论</h2><hr/>
 	   	   	<if condition="$commentList eq null">
 		   	   <h4>暂无评论</h4>
-		    	<else /> 	
+	    	<else /> 	
 		    	<foreach name="commentList" item="vo">
 			   		<div class="commentDetail">	
 			   			<div class="commnetLeft">{$vo.username}:</div>

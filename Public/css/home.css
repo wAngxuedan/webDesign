@@ -5,11 +5,11 @@ body{font-size: 62.5%;}
 .footer_nav{width: 40%;height: 100%;margin: auto;padding-top: 30px;}
 .footer_img{display: block;position: absolute;width: 100px;height: 100px;left: 30%; }
 hr{margin: 0px;}
-
+/*layout部分*/
 .navbar{font-size: 3em;background-color: #dc3545!important;}
 .navbar-nav{width: 70%;float: left;}
 .userbar {list-style: none;position:relative;float: left;width: 25%;}
-.userbar li{position: relative;float: right;padding-top:14px;padding-right: 7px;padding-left: 7px;width: 30%;overflow: hidden;text-align: center;}
+.userbar li{position: relative;float: right;padding-top:18px;padding-right: 7px;padding-left: 7px;width: 33%;overflow: hidden;text-align: center;}
 .user-link{color: rgba(255,255,255,.5)}
 .form-control,#loginBtn,#registerBtn{width:70%;margin: auto;display: block;}
 #verifyCode1,#verifyCode2{border:0px;width:80%;}
@@ -20,10 +20,10 @@ hr{margin: 0px;}
 .inputframe{position: relative;display: inline-block;font-size: 0.8em;top:20%;width: 90%;}
 .inputframe input{float: left;width: 100%;}
 .inputframe button{display: inline-block;width: 15%;height:100%;position:absolute;right:0px;top: 0px;}
-
+/*轮播部分*/
 #picture{position: relative;width: 60%;margin: 0 auto;overflow: hidden;}
 #picture img{width: 100%;}
-
+/*主体部分*/
 .content1,.content2{display:inline-block;width: 60%;height: auto;margin-left:20% ;background-color: white;}
 .content1{margin-bottom: -4px;}
 .mainCard{display: inline-block;float: left;width: 40%;margin-top: 5%;margin-left: 6.5%;font-size: 1.5em;border: 1px solid red;border-radius: 5px;}
@@ -33,7 +33,7 @@ hr{margin: 0px;}
 .mainCard a{color: black;}
 .mainCard:hover{background-color:#9e9e9e; }
 .mainCard h1 a:hover{text-decoration: none;}
-
+/*咨讯大纲页*/
 .kindName{padding-left: 5%;padding-top: 20px;padding-bottom: 20px;font-size:5em;}
 .info{width: 100%;font-size: 1.5em;padding: 20px;border-bottom: 1px solid rgba(0,0,0,.3);}
 .infoTitle{color: black};
@@ -41,11 +41,13 @@ hr{margin: 0px;}
 .infoContent{line-height: 24px;color: #9e9e9e;max-height: 70px; overflow: hidden;}
 .pageInfo{font-size: 2.5em;}
 .scanNumber{float: right;}
-
-.infoDetail{font-size: 2em;padding: 40px;}
+/*咨讯详情页*/
+.infoDetail{font-size: 2em;padding: 40px;position: relative;}
 .infoDetail h1,.infoDetail h5{text-align: center;padding-bottom: 10px;width: 80%;margin: 0 auto;}
 .infoDetail p,.commentFrame,.commentList,{width: 80%;margin:0 auto;}
-.commentFrame{margin-top: 40px;margin-bottom: 40px;}
+.commentFrame{margin-top: 80px;margin-bottom: 40px;}
+.tips{float: right;width: 300px;height: 100px;overflow: hidden;}
+.like,.collect{position: relative;font-size: 1.5em;margin-left: 50px;color: grey;text-align: center;display: inline-block;}
 .comment{width: 100%;}
 .submitBtn{float: right;}
 .commentList .pageInfo{font-size: 1em;}

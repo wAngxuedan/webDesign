@@ -1,0 +1,1 @@
+<?php	return array ( 0 => 'account', 1 => 'info_id', '_autoinc' => false, '_type' => array ( 'account' => 'varchar(16)', 'info_id' => 'int(16)', ), );?>

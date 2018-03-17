@@ -66,6 +66,9 @@ class UserAction extends Action {
         $this->success("注销成功");
 
      }
+     public function userSpace(){
+        $this->display();
+     }
 }
 
 ?>

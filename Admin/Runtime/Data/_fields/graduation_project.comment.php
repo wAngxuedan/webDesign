@@ -1,0 +1,1 @@
+<?php	return array ( 0 => 'com_id', 1 => 'com_content', 2 => 'info_id', 3 => 'account', 4 => 'username', 5 => 'com_time', '_autoinc' => true, '_pk' => 'com_id', '_type' => array ( 'com_id' => 'int(16)', 'com_content' => 'text', 'info_id' => 'int(16)', 'account' => 'varchar(16)', 'username' => 'varchar(16)', 'com_time' => 'datetime', ), );?>

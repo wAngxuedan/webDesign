@@ -64,47 +64,47 @@ class InfoAction extends Action {
     public function infoDetail(){
         $m1=M('Info');
         $m2=M('Comment');
-        $m3=M('Scan'); 
+        $m3=M('Thumbup');
+        $m4=M('Collect');
         $info_id=$_GET['info_id'];
         $commentList=null;
-        // 首先在scan表记录该次浏览记录
-        if(cookie('account')){
-            $array['account']=cookie('account');  
-        }
-        else{
-            $array['account']="游客";
-        }
+        // 初始化cookie
+        cookie('like',null);
+        // 判断用户是否点过赞和收藏过
         $array['info_id']=$info_id;
-        $array['scan_time']=date('Y-m-d h:i:s',time());
-        if($m3->add($array)){
-             // 获取资讯内容
-            $condition['info_id']=$info_id;
-            $info=$m1->where($condition)->find();
-            // 该咨询浏览数+1
-            $condition['scanNumber']=$info['scanNumber']+1;
-            if($m1->save($condition)!==false){
-                // 评论分页
-                $count=$m2->where($condition)->count();
-                $Page=new Page($count,6);
-                $show=$Page->show();
-                // 获取资讯对应的评论
-                $commentList=$m2->limit($Page->firstRow.','.$Page->listRows)->where($condition)->select();
-                $content=explode("\n",$info['content']);
-                $this->assign('count',$count);
-                $this->assign('content',$content);
-                $this->assign('commentList',$commentList);
-                $this->assign('info',$info);
-                $this->assign('show',$show);
-                $this->display();
-            }
-            else{
-                $this->error("添加咨询浏览数失败");
-            }
+        $array['account']=cookie('account');
+        if($m3->where($array)->count()>0){
+            cookie('like','yes');
+        }
+        if($m4->where($array)->count()>0){
+            cookie('collect','yes');
+        }
+         // 获取资讯内容
+        $condition['info_id']=$info_id;
+        $info=$m1->where($condition)->find();
+        // 该咨询浏览数+1
+        $condition['scanNumber']=$info['scanNumber']+1;
+        if($m1->save($condition)!==false){
+            // 评论分页
+            $count=$m2->where($condition)->count();
+            $Page=new Page($count,6);
+            $show=$Page->show();
+            // 获取资讯对应的评论
+            $commentList=$m2->limit($Page->firstRow.','.$Page->listRows)->where($condition)->select();
+            $content=explode("\n",$info['content']);
+            $this->assign('count',$count);
+            $this->assign('content',$content);
+            $this->assign('commentList',$commentList);
+            $this->assign('info',$info);
+            $this->assign('show',$show);
+            $this->display();
         }
         else{
-            $this->error("添加浏览记录失败");
+            $this->error("添加咨询浏览数失败");
         }
+        
     }
+    // 咨询对应评论
     public function comment(){
         if(cookie('account')==""){
             $this->error("对不起,请先登录");
@@ -125,8 +125,54 @@ class InfoAction extends Action {
             }
             
         }
-
-
+    }
+    // 点赞功能
+    public function like(){
+        $m=M('Thumbup');
+        $array['info_id']=$_GET['info_id'];
+        $array['account']=$_GET['account'];
+        if($result=$m->add($array)){
+             $this->ajaxReturn($result,'点赞成功',1);
+        }
+        else{
+             $this->ajaxReturn($result,'点赞失败',0);
+        }
+    }
+    // 取消点赞
+    public function dislike(){
+        $m=M('Thumbup');
+        $array['info_id']=$_GET['info_id'];
+        $array['account']=$_GET['account'];
+        if($result=$m->where($array)->delete()){
+             $this->ajaxReturn($result,'取消点赞成功',1);
+        }
+        else{
+             $this->ajaxReturn($result,'取消点赞失败',0);
+        }
+    }    
+      // 收藏功能
+    public function collect(){
+        $m=M('Collect');
+        $array['info_id']=$_GET['info_id'];
+        $array['account']=$_GET['account'];
+        if($result=$m->add($array)){
+             $this->ajaxReturn($result,'收藏成功',1);
+        }
+        else{
+             $this->ajaxReturn($result,'收藏失败',0);
+        }
+    }
+          // 取消收藏
+    public function discollect(){
+        $m=M('Collect');
+        $array['info_id']=$_GET['info_id'];
+        $array['account']=$_GET['account'];
+        if($result=$m->where($array)->delete()){
+             $this->ajaxReturn($result,'取消收藏成功',1);
+        }
+        else{
+             $this->ajaxReturn($result,'取消收藏失败',0);
+        }
     }
 }
 
