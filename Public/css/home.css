@@ -52,9 +52,11 @@ hr{margin: 0px;}
 .submitBtn{float: right;}
 .commentList .pageInfo{font-size: 1em;}
 .commentList h2{color: blue}
-.commentDetail{width: 100%;margin:0 auto;border-bottom: 1px solid rgba(0,0,0,.3);float: left;height: 80px;}
-.commnetLeft{float: left;width: 10%;overflow: hidden;text-align: right;padding-right: 10px;}
-.commnetRight p{margin-bottom: 0px;height: 60px;overflow: hidden;width: 100%;font-size: 1em}
-.commnetRight h6{margin-bottom: 0px;}
-.commnetRight{float: left;width: 90%;overflow: hidden;}
-.commnetRight:hover{background-color:#F8F8FF }
+.commentDetail{width: 100%;margin:0 auto;border-bottom: 1px solid rgba(0,0,0,.3);float: left;height: 80px;border: 1px dashed grey;margin-bottom: 10px;overflow: hidden;}
+.commnentTop{float: left;width: 100%;overflow: hidden;background-color:#17a2b8}
+.commnentTop span{float: right;}
+.commnentbottom p{height: 60px;overflow: hidden;width: 100%;font-size: 0.8em}
+.commnentbottom{float: left;overflow: hidden;}
+/*upload*/
+.error {font-size: 18px;font-weight: bold;color: red;margin:10px 0}
+label{width:60px;display: inline-block}

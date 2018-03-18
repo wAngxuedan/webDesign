@@ -1,1 +1,34 @@
 <layout name='layout'/>
+    <div class="content2">
+    	
+        <div class="demo">
+            <form id="upload_form" enctype="multipart/form-data" method="post" action="/webDesign/Home/Lib/Action/upload.php" onsubmit="return checkForm()">
+                <!-- hidden crop params -->
+                <input type="hidden" id="x1" name="x1"autocomplete="off" />
+                <input type="hidden" id="y1" name="y1" autocomplete="off"/>
+                <input type="hidden" id="x2" name="x2"autocomplete="off" />
+                <input type="hidden" id="y2" name="y2"autocomplete="off" />
+
+
+                <input type="file" name="image_file" id="image_file" onchange="fileSelectHandler()" />
+
+                <div class="error">注意：上传前，先截图</div>
+                <div class="step2">
+                    <img id="preview" />
+                        <div class="info1" style="display:none">
+                        <ul>
+                            <li><label ">文件大小</label> <input type="text" id="filesize" name="filesize" class="input" autocomplete="off" "/></li>
+                            <li><label ">类型</label> <input type="text" id="filetype" name="filetype" class="input"autocomplete="off"/ "></li>
+                            <li><label ">图像尺寸</label> <input type="text" id="filedim" name="filedim" class="input"autocomplete="off"/ "></li>
+                            <li><label ">宽度</label> <input type="text" id="w" name="w" class="input"autocomplete="off"/ "></li>
+                            <li><label ">高度</label> <input type="text" id="h" name="h" class="input"autocomplete="off"/ "></li>
+                        </ul>
+                    </div>
+                    <input type="submit" value="上传" class="btn" />
+                </div>
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript" src="/webDesign/Public/js/upload/jquery.js"></script> 
+    <script src="/webDesign/Public/js/upload/jquery.Jcrop.min.js"></script>
+    <script src="/webDesign/Public/js/upload/script.js"></script>
