@@ -79,3 +79,7 @@ function collect(info_id,account) {
          })
     }
 }
+
+window.onload=function(){
+  $('#myTab a:first')[0].click();
+}

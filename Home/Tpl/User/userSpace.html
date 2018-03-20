@@ -1,34 +1,87 @@
 <layout name='layout'/>
-    <div class="content2">
-    	
-        <div class="demo">
-            <form id="upload_form" enctype="multipart/form-data" method="post" action="/webDesign/Home/Lib/Action/upload.php" onsubmit="return checkForm()">
-                <!-- hidden crop params -->
-                <input type="hidden" id="x1" name="x1"autocomplete="off" />
-                <input type="hidden" id="y1" name="y1" autocomplete="off"/>
-                <input type="hidden" id="x2" name="x2"autocomplete="off" />
-                <input type="hidden" id="y2" name="y2"autocomplete="off" />
-
-
-                <input type="file" name="image_file" id="image_file" onchange="fileSelectHandler()" />
-
-                <div class="error">注意：上传前，先截图</div>
-                <div class="step2">
-                    <img id="preview" />
+    <div class="content1">
+        <div class="userInfo">
+            <!-- 左边头像部分 -->
+            <div class="infoLeft">
+                <!-- 上传头像组件 -->
+                <div class="demo">
+                    <form id="upload_form" enctype="multipart/form-data" method="post" action="__APP__/User/uploadicon" onsubmit="return checkForm()">
+                        <!-- hidden crop params -->
+                        <input type="hidden" id="x1" name="x1"autocomplete="off" />
+                        <input type="hidden" id="y1" name="y1" autocomplete="off"/>
+                        <input type="hidden" id="x2" name="x2"autocomplete="off" />
+                        <input type="hidden" id="y2" name="y2"autocomplete="off" />
+                        <div class="border">
+                        <img id="icon" src="/webDesign/Public/img/upload/{$icon}">
+                        <img id="preview"/>  
+                        </div>
+                        <input type="file" name="image_file" id="image_file" onchange="fileSelectHandler()"  ><br/>
+                        <div class="error">注意：上传前，先截图</div><br/>
                         <div class="info1" style="display:none">
-                        <ul>
-                            <li><label ">文件大小</label> <input type="text" id="filesize" name="filesize" class="input" autocomplete="off" "/></li>
-                            <li><label ">类型</label> <input type="text" id="filetype" name="filetype" class="input"autocomplete="off"/ "></li>
-                            <li><label ">图像尺寸</label> <input type="text" id="filedim" name="filedim" class="input"autocomplete="off"/ "></li>
-                            <li><label ">宽度</label> <input type="text" id="w" name="w" class="input"autocomplete="off"/ "></li>
-                            <li><label ">高度</label> <input type="text" id="h" name="h" class="input"autocomplete="off"/ "></li>
-                        </ul>
-                    </div>
-                    <input type="submit" value="上传" class="btn" />
+                            <ul>
+                                <li><label ">文件大小</label> <input type="text" id="filesize" name="filesize" class="input" autocomplete="off" "/></li>
+                                <li><label ">类型</label> <input type="text" id="filetype" name="filetype" class="input"autocomplete="off"/ "></li>
+                                <li><label ">图像尺寸</label> <input type="text" id="filedim" name="filedim" class="input"autocomplete="off"/ "></li>
+                                <li><label ">宽度</label> <input type="text" id="w" name="w" class="input"autocomplete="off"/ "></li>
+                                <li><label ">高度</label> <input type="text" id="h" name="h" class="input"autocomplete="off"/ "></li>
+                            </ul>
+                         </div>
+                    <input type="submit" value="上传" class="btn btn-warning uploadIcon" />
+                    </form>
                 </div>
-            </form>
+            </div>
+            <!-- 右边个人资料部分 -->
+            <div class="infoRight">
+            <label>账号:</label>
+            <span>苹果</span>
+            <label>账号:</label>
+            <span>苹果</span>
+            <label>账号:</label>
+            <span>苹果</span>
+            <label>账号:</label>
+            <span>苹果</span>
+            <label>账号:</label>
+            <span>苹果</span>
+            <label>账号:</label>
+            <span>苹果</span>
+            </div>
+            <!-- 关注，点赞，收藏标签分页 -->
+            <div class="sortPage">
+                <ul id="myTab" class="nav nav-pills">
+                    <li class="active">
+                        <a href="#attention" data-toggle="tab">我的关注</a>
+                    </li>
+                    <li>
+                        <a href="#fans" data-toggle="tab">粉丝</a>
+                    </li>
+                     <li>
+                        <a href="#thubmup" data-toggle="tab">我的点赞</a>
+                    </li>
+                     <li>
+                        <a href="#collect" data-toggle="tab">我的收藏</a>
+                    </li>
+                </ul>
+                <div id="myTabContent" class="tab-content">
+                    <div class="tab-pane fade in active" id="attention">
+                        <p>菜鸟教程是一个提供最新的web技术站点，本站免费提供了建站相关的技术文档，帮助广大web技术爱好者快速入门并建立自己的网站。菜鸟先飞早入行——学的不仅是技术，更是梦想。</p>
+                    </div>
+                    <div class="tab-pane fade" id="fans">
+                        <p>iOS 是一个由苹果公司开发和发布的手机操作系统。最初是于 2007 年首次发布 iPhone、iPod Touch 和 Apple 
+                            TV。iOS 派生自 OS X，它们共享 Darwin 基础。OS X 操作系统是用在苹果电脑上，iOS 是苹果的移动版本。</p>
+                    </div>
+                    <div class="tab-pane fade" id="thubmup">
+                        <p>jMeter 是一款开源的测试软件。它是 100% 纯 Java 应用程序，用于负载和性能测试。</p>
+                    </div>
+                    <div class="tab-pane fade" id="collect">
+                        <p>Enterprise Java Beans（EJB）是一个创建高度可扩展性和强大企业级应用程序的开发架构，部署在兼容应用程序服务器（比如 JBOSS、Web Logic 等）的 J2EE 上。
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
+
     <script type="text/javascript" src="/webDesign/Public/js/upload/jquery.js"></script> 
     <script src="/webDesign/Public/js/upload/jquery.Jcrop.min.js"></script>
     <script src="/webDesign/Public/js/upload/script.js"></script>

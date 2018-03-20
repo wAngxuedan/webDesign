@@ -41,7 +41,10 @@
 	    	<else /> 	
 		    	<foreach name="commentList" item="vo" key="i">
 			   		<div class="commentDetail">	
-			   			<div class="commnentTop">#{$i+1}楼&nbsp&nbsp&nbsp&nbsp{$vo.username}<span>{$vo.com_time}</span></div>
+			   			<div class="commnentTop">#{$i+1}楼&nbsp&nbsp&nbsp&nbsp	
+			   				<img src="/webDesign/Public/img/upload/{$icon[$i]}" >&nbsp&nbsp	
+			   				{$username[$i]}			   			
+			   				<span>{$vo.com_time}</span></div>
 			   			<div class="commnentbottom">
 			   				<p data-toggle="tooltip" title="{$vo.com_content}">{$vo.com_content}</p>
 			   			</div>

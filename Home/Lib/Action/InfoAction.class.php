@@ -66,6 +66,7 @@ class InfoAction extends Action {
         $m2=M('Comment');
         $m3=M('Thumbup');
         $m4=M('Collect');
+        $m5=M('User');
         $info_id=$_GET['info_id'];
         $commentList=null;
         // 初始化cookie
@@ -81,7 +82,8 @@ class InfoAction extends Action {
         }
          // 获取资讯内容
         $condition['info_id']=$info_id;
-        $info=$m1->where($condition)->find();
+        $info=$m1->where($condition)->find();            
+        
         // 该咨询浏览数+1
         $condition['scanNumber']=$info['scanNumber']+1;
         if($m1->save($condition)!==false){
@@ -91,9 +93,18 @@ class InfoAction extends Action {
             $show=$Page->show();
             // 获取资讯对应的评论
             $commentList=$m2->limit($Page->firstRow.','.$Page->listRows)->where($condition)->select();
+            // 用于调整咨讯的格式
             $content=explode("\n",$info['content']);
+            // 获取每个评论者的头像图片
+            for($i=0;$i<count($commentList);$i++){
+                $arr['account']=$commentList[$i]['account'];
+                $icon[$i]=$m5->where($arr)->getField('icon');
+                $username[$i]=$m5->where($arr)->getField('username');
+            }
             $this->assign('count',$count);
             $this->assign('content',$content);
+            $this->assign('icon',$icon);
+            $this->assign('username',$username);
             $this->assign('commentList',$commentList);
             $this->assign('info',$info);
             $this->assign('show',$show);

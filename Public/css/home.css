@@ -24,7 +24,7 @@ hr{margin: 0px;}
 #picture{position: relative;width: 60%;margin: 0 auto;overflow: hidden;}
 #picture img{width: 100%;}
 /*主体部分*/
-.content1,.content2{display:inline-block;width: 60%;height: auto;margin-left:20% ;background-color: white;}
+.content1,.content2{display:inline-block;width: 60%;height: auto;margin-left:20% ;background-color: white;min-height: 600px;}
 .content1{margin-bottom: -4px;}
 .mainCard{display: inline-block;float: left;width: 40%;margin-top: 5%;margin-left: 6.5%;font-size: 1.5em;border: 1px solid red;border-radius: 5px;}
 .mainCard h1{padding-left: 10%;padding-top: 20px;}
@@ -52,11 +52,25 @@ hr{margin: 0px;}
 .submitBtn{float: right;}
 .commentList .pageInfo{font-size: 1em;}
 .commentList h2{color: blue}
-.commentDetail{width: 100%;margin:0 auto;border-bottom: 1px solid rgba(0,0,0,.3);float: left;height: 80px;border: 1px dashed grey;margin-bottom: 10px;overflow: hidden;}
+.commentDetail{width: 100%;margin:0 auto;float: left;border: 1px dashed grey;margin-bottom: 10px;overflow: hidden;}
 .commnentTop{float: left;width: 100%;overflow: hidden;background-color:#17a2b8}
 .commnentTop span{float: right;}
-.commnentbottom p{height: 60px;overflow: hidden;width: 100%;font-size: 0.8em}
-.commnentbottom{float: left;overflow: hidden;}
+.commnentTop img{width: 34px;height: 35px;}
+.commnentbottom p{height: 70px;overflow: hidden;width: 100%;font-size: 0.8em;}
+.commnentbottom{overflow: hidden;height: 70px;float: left;}
+/*个人空间页*/
+.userInfo{border: 1px dashed black;width: 80%;margin: 20px 10%;border-radius: 10px;float: left;padding: 10px;}
+.infoRight{float: left;width: 55%;font-size: 2em;margin-top: 20px;}
+.infoRight label{display: inline-block;width: 20%;text-align: right;margin: 10px 0;}
+.infoRight span{display: inline-block;width: 20%;text-align: left;}
+.infoLeft{float: left;width: 35%;margin: 20px;}
+.sortPage{float: left;font-size: 2em;display: inline-block;}
+.sortPage ul{background-color:#F0FFFF}
+.sortPage ul li{margin: 20px;}
 /*upload*/
-.error {font-size: 18px;font-weight: bold;color: red;margin:10px 0}
+.error {font-size: 18px;font-weight: bold;color: red;margin:10px 0;display: inline-block;}
 label{width:60px;display: inline-block}
+.border{position: relative;max-height: 300px;width: 100px;height: 100px;z-index: 0;overflow: hidden;}
+#icon{width: 100px;height: 100px;position: absolute;left: 0px;}
+#preview{position: absolute;left: 0px;}
+

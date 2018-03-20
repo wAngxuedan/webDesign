@@ -66,7 +66,6 @@ function fileSelectHandler() {
 
     // preview element
     var oImage = document.getElementById('preview');
-
     // prepare HTML5 FileReader
     var oReader = new FileReader();
     oReader.onload = function(e) {
