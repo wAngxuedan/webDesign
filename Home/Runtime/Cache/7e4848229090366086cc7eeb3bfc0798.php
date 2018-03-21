@@ -150,100 +150,50 @@
         </div>
       </div>
          
-    <div class="content1">
-        <div class="userInfo">
-            <!-- 左边头像部分 -->
-            <div class="infoLeft">
-                <img id="icon" src="/webDesign/Public/img/upload/<?php echo ($user["icon"]); ?>">
-            </div>
-            <!-- 右边个人资料部分 -->
-            <div class="infoRight"> 
-            <label>用户:</label>
-            <span><?php echo ($user["username"]); ?></span>
-            <label>性别:</label>
-            <span>
-                <?php if($user["sex"] == 0): ?>男
-                    <?php else: ?>女<?php endif; ?>
-            </span>
-            <label>账号:</label>
-            <span><?php echo ($user["account"]); ?></span>  
-            <label>邮箱:</label>
-            <span><?php echo ($user["mail"]); ?></span>
-            <label>住址:</label>  
-            <span>/</span>
-            <label>电话:</label>
-            <span><?php echo ($user["phone"]); ?></span>
-            </div>
-            <span class="attention1">+关注</span>
-            <div class="clear"></div>
-            <!-- 关注，点赞，收藏标签分页 -->
-            <div class="sortPage">
-                <ul id="myTab" class="nav nav-pills">
-                    <li class="active">
-                        <a href="#attention" data-toggle="tab">关注</a>
-                    </li>
-                    <li>
-                        <a href="#fans" data-toggle="tab">粉丝</a>
-                    </li>
-                     <li>
-                        <a href="#thubmup" data-toggle="tab">点赞</a>
-                    </li>
-                     <li>
-                        <a href="#collect" data-toggle="tab">收藏</a>
-                    </li>
-                </ul>
-                <div id="myTabContent" class="tab-content">
-                    <div class="tab-pane fade in active" id="attention">
-                        <p>菜鸟教程是一个提供最新的web技术站点，本站免费提供了建站相关的技术文档，帮助广大web技术爱好者快速入门并建立自己的网站。菜鸟先飞早入行——学的不仅是技术，更是梦想。</p>
-                    </div>
-                    <div class="tab-pane fade" id="fans">
-                        <p>iOS 是一个由苹果公司开发和发布的手机操作系统。最初是于 2007 年首次发布 iPhone、iPod Touch 和 Apple 
-                            TV。iOS 派生自 OS X，它们共享 Darwin 基础。OS X 操作系统是用在苹果电脑上，iOS 是苹果的移动版本。</p>
-                    </div>
-                    <div class="tab-pane fade" id="thubmup">
-                          <?php if($info1 != null ): if(is_array($info1)): foreach($info1 as $i=>$vo): ?><h5><a class="infoTitle" data-toggle="tooltip" title="<?php echo ($vo["title"]); ?> "href="__APP__/Info/infoDetail/info_id/<?php echo ($vo["info_id"]); ?>"><?php echo ($i+1); ?>.<?php echo ($vo["title"]); ?></a></h5><?php endforeach; endif; ?>
-                          <?php else: ?><h5>暂无点赞</h5><?php endif; ?>
-                    </div>
-                    <div class="tab-pane fade" id="collect" >
-                          <?php if($info2 != null ): if(is_array($info2)): foreach($info2 as $j=>$vo): ?><h5><a class="infoTitle" data-toggle="tooltip" title="<?php echo ($vo["title"]); ?>" href="__APP__/Info/infoDetail/info_id/<?php echo ($vo["info_id"]); ?>"><?php echo ($j+1); ?>.<?php echo ($vo["title"]); ?></a></h5><?php endforeach; endif; ?>
-                          <?php else: ?><h5>暂无收藏</h5><?php endif; ?>
-                    </div>
-                </div>
-            </div>
-        </div>
+<!-- 轮播 -->
+<div id="picture" class="carousel slide" data-ride="carousel">
+  <!-- 指示符 -->
+  <ul class="carousel-indicators">
+    <li data-target="#picture" data-slide-to="0" class="active"></li>
+    <li data-target="#picture" data-slide-to="1"></li>
+    <li data-target="#picture" data-slide-to="2"></li>
+  </ul>
+  <!-- 轮播图片 -->
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="/webDesign/Public/img/picture1.jpg">
     </div>
+    <div class="carousel-item">
+      <img src="/webDesign/Public/img/picture2.jpg">
+    </div>
+    <div class="carousel-item">
+      <img src="/webDesign/Public/img/picture3.jpg">
+    </div>
+  </div>
+  <!-- 左右切换按钮 -->
+  <a class="carousel-control-prev" href="#picture" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#picture" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+</div>
+<!-- 主体内容 -->
+<div class="content1">
+  <?php if(is_array($kind)): foreach($kind as $i=>$vo1): ?><div class="mainCard">
+      <h1 ><a href="__APP__/Info/outline/info_kind/<?php echo ($vo1["kind_id"]); ?>"><?php echo ($vo1["kind_name"]); ?></a></h1><hr/>
+      <ul>
+        <?php if(is_array($info[$i])): foreach($info[$i] as $j=>$vo2): ?><li data-toggle="tooltip" title="<?php echo ($vo2["title"]); ?>"><a href="__APP__/Info/infoDetail/info_id/<?php echo ($vo2["info_id"]); ?>"><?php echo ($vo2['title']); ?></a></li><?php endforeach; endif; ?>
+      </ul>
+    </div><?php endforeach; endif; ?>
+   <div class="mainCard">
+    <h1><a href="__APP__/Info/hotSearch">热搜榜</a></h1><hr/>
+    <ul>
+      <?php if(is_array($info_order)): foreach($info_order as $j=>$vo3): ?><li data-toggle="tooltip" title="<?php echo ($vo3["title"]); ?>"><a href="__APP__/Info/infoDetail/info_id/<?php echo ($vo3["info_id"]); ?>"><?php echo ($vo3['title']); ?></a></li><?php endforeach; endif; ?>
+    </ul>
+  </div>
+</div>  
 
-
-    <script type="text/javascript" src="/webDesign/Public/js/upload/jquery.js"></script> 
-    <script src="/webDesign/Public/js/upload/jquery.Jcrop.min.js"></script>
-    <script src="/webDesign/Public/js/upload/script.js"></script>
-
-                    <!-- 上传头像组件 -->
-  <!--               <div class="demo">
-                    <form id="upload_form" enctype="multipart/form-data" method="post" action="__APP__/User/uploadicon" onsubmit="return checkForm()"> -->
-                        <!-- hidden crop params -->
-<!--                         <input type="hidden" id="x1" name="x1"autocomplete="off" />
-                        <input type="hidden" id="y1" name="y1" autocomplete="off"/>
-                        <input type="hidden" id="x2" name="x2"autocomplete="off" />
-                        <input type="hidden" id="y2" name="y2"autocomplete="off" />
-                        <div class="border">
-                        <img id="icon" src="/webDesign/Public/img/upload/<?php echo ($user["icon"]); ?>">
-                        <img id="preview"/>  
-                        </div>
-                        <input type="file" name="image_file" id="image_file" onchange="fileSelectHandler()"  ><br/>
-                        <div class="error">注意：上传前，先截图</div><br/>
-                        <div class="info1" style="display:none">
-                            <ul>
-                                <li><label ">文件大小</label> <input type="text" id="filesize" name="filesize" class="input" autocomplete="off" "/></li>
-                                <li><label ">类型</label> <input type="text" id="filetype" name="filetype" class="input"autocomplete="off"/ "></li>
-                                <li><label ">图像尺寸</label> <input type="text" id="filedim" name="filedim" class="input"autocomplete="off"/ "></li>
-                                <li><label ">宽度</label> <input type="text" id="w" name="w" class="input"autocomplete="off"/ "></li>
-                                <li><label ">高度</label> <input type="text" id="h" name="h" class="input"autocomplete="off"/ "></li>
-                            </ul>
-                         </div>
-                    <input type="submit" value="上传" class="btn btn-warning uploadIcon" />
-                    </form>
-                </div> -->
       <div class="footer">
          <div class="footer_nav">
            <div class="footer_img"><img src="/webDesign/Public/img/logo2.png"></div>

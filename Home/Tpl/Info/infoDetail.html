@@ -17,9 +17,9 @@
 	   	    <span class="like"><i class="icon-heart" onclick="like({$info.info_id},'{$Think.cookie.account}')"></i><br/><span>点个赞</span></span>
 	   	    </if>
 	   		<if condition="$Think.cookie.collect eq 'yes'">
-            <span class="collect"><i class="icon-star" onclick="collect({$info.info_id},'{$Think.cookie.account}')" style="color:red"></i><br/><span>点个赞</span></span>
+            <span class="collect"><i class="icon-star" onclick="collect({$info.info_id},'{$Think.cookie.account}')" style="color:red"></i><br/><span>收藏</span></span>
 	   	    <else/>
-	   	    <span class="collect"><i class="icon-star" onclick="collect({$info.info_id},'{$Think.cookie.account}')"></i><br/><span>点个赞</span></span>
+	   	    <span class="collect"><i class="icon-star" onclick="collect({$info.info_id},'{$Think.cookie.account}')"></i><br/><span>收藏</span></span>
 	   	    </if>
 	   </div>
 	   <!-- 提交评论区域 -->
@@ -43,8 +43,9 @@
 			   		<div class="commentDetail">	
 			   			<div class="commnentTop">#{$i+1}楼&nbsp&nbsp&nbsp&nbsp	
 			   				<img src="/webDesign/Public/img/upload/{$icon[$i]}" >&nbsp&nbsp	
-			   				{$username[$i]}			   			
-			   				<span>{$vo.com_time}</span></div>
+			   				{$username[$i]}		
+			   				<span class="attention">+关注</span>	   			
+			   				<span class="commentTime">{$vo.com_time}</span></div>
 			   			<div class="commnentbottom">
 			   				<p data-toggle="tooltip" title="{$vo.com_content}">{$vo.com_content}</p>
 			   			</div>

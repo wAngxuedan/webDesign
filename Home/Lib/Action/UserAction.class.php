@@ -124,12 +124,28 @@ class UserAction extends Action {
      }
      public function userSpace(){
         $m=M('User');
+        $m1=M('Thumbup');
+        $m2=M('Collect');
+        $m3=M('Info');
         $condition['account']=$_GET['account'];
-        if($condition['account']==cookie('account')){
-            $icon=$m->where($condition)->getField('icon');
+        $user=$m->where($condition)->find();
+        $info_id1=$m1->where($condition)->select();
+        $info_id2=$m2->where($condition)->select();
+        // 返回该用户点赞过的咨讯
+        for($i=0;$i<count($info_id1);$i++){
+            $arr['info_id']=$info_id1[$i]['info_id'];
+            $info1[$i]=$m3->where($arr)->find();      
         }
-        $this->assign("icon",$icon);
+         // 返回该用户收藏过的咨讯
+        for($i=0;$i<count($info_id2);$i++){
+            $arr['info_id']=$info_id2[$i]['info_id'];
+            $info2[$i]=$m3->where($arr)->find();      
+        }
+        $this->assign('info1',$info1);
+        $this->assign('info2',$info2);
+        $this->assign("user",$user);
         $this->display();
+
      }
 }
 

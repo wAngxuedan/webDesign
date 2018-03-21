@@ -24,7 +24,7 @@ hr{margin: 0px;}
 #picture{position: relative;width: 60%;margin: 0 auto;overflow: hidden;}
 #picture img{width: 100%;}
 /*主体部分*/
-.content1,.content2{display:inline-block;width: 60%;height: auto;margin-left:20% ;background-color: white;min-height: 600px;}
+.content1,.content2{display:inline-block;width: 60%;height: auto;margin-left:20% ;background-color: white;min-height:750px;}
 .content1{margin-bottom: -4px;}
 .mainCard{display: inline-block;float: left;width: 40%;margin-top: 5%;margin-left: 6.5%;font-size: 1.5em;border: 1px solid red;border-radius: 5px;}
 .mainCard h1{padding-left: 10%;padding-top: 20px;}
@@ -54,23 +54,27 @@ hr{margin: 0px;}
 .commentList h2{color: blue}
 .commentDetail{width: 100%;margin:0 auto;float: left;border: 1px dashed grey;margin-bottom: 10px;overflow: hidden;}
 .commnentTop{float: left;width: 100%;overflow: hidden;background-color:#17a2b8}
-.commnentTop span{float: right;}
+.attention{display: inline-block;border: 1px black solid;font-size: 0.6em;color: black;}
+.attention:hover,.like:hover,.collect:hover{cursor: pointer;}
+.attention1{position: absolute;right: 20px;top: 20px;border: 1px #00CCFF solid;font-size: 2em;background-color: #00CCFF}
+.commentTime{float: right;}
 .commnentTop img{width: 34px;height: 35px;}
 .commnentbottom p{height: 70px;overflow: hidden;width: 100%;font-size: 0.8em;}
 .commnentbottom{overflow: hidden;height: 70px;float: left;}
 /*个人空间页*/
-.userInfo{border: 1px dashed black;width: 80%;margin: 20px 10%;border-radius: 10px;float: left;padding: 10px;}
-.infoRight{float: left;width: 55%;font-size: 2em;margin-top: 20px;}
-.infoRight label{display: inline-block;width: 20%;text-align: right;margin: 10px 0;}
-.infoRight span{display: inline-block;width: 20%;text-align: left;}
-.infoLeft{float: left;width: 35%;margin: 20px;}
-.sortPage{float: left;font-size: 2em;display: inline-block;}
+.userInfo{border: 1px dashed black;width: 80%;margin: 20px 10%;border-radius: 10px;float: left;padding: 10px;min-height: 670px;position: relative;}
+.infoRight{float: left;width: 55%;font-size: 2em;margin-top: 40px;overflow: hidden;}
+.infoRight label{display: inline-block;width: 15%;text-align: right;margin: 10px 0;font-weight: bold;}
+.infoRight span{display: inline-block;width: 30%;text-align: left;}
+.infoLeft{float: left;width: 30%;margin: 20px;}
+.sortPage{float: left;font-size: 2em;display: inline-block;width: 100%;margin-top: 20px;}
 .sortPage ul{background-color:#F0FFFF}
-.sortPage ul li{margin: 20px;}
+.sortPage ul li{margin: 20px;font-size: 1.5em}
 /*upload*/
 .error {font-size: 18px;font-weight: bold;color: red;margin:10px 0;display: inline-block;}
 label{width:60px;display: inline-block}
 .border{position: relative;max-height: 300px;width: 100px;height: 100px;z-index: 0;overflow: hidden;}
-#icon{width: 100px;height: 100px;position: absolute;left: 0px;}
+#icon{width: 150px;height: 150px;position: absolute;left: 20px;}
 #preview{position: absolute;left: 0px;}
+.clear{clear: both;}
 

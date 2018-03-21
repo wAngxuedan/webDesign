@@ -71,6 +71,7 @@ class InfoAction extends Action {
         $commentList=null;
         // 初始化cookie
         cookie('like',null);
+        cookie('collect',null);
         // 判断用户是否点过赞和收藏过
         $array['info_id']=$info_id;
         $array['account']=cookie('account');
