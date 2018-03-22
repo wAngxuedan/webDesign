@@ -79,7 +79,57 @@ function collect(info_id,account) {
          })
     }
 }
-
-window.onload=function(){
-  $('#myTab a:first')[0].click();
+// 关注评论者，如果已关注则取消关注重复关注，未关注则执行关注操作
+function attention(account,user,index){
+     array=new Array();
+    if(user==""){
+        alert("请先登录");
+    }
+    else{
+        if(account==user){
+          alert("不需要关注自己哦");
+        }
+        else{
+          var ele = document.getElementsByTagName('span');
+          // 先筛选出className是attention开头的
+          for(var i = 0; i < ele.length; i++){
+            if(ele[i].className.indexOf("attention")>=0){
+                 array.push(ele[i]);
+            } 
+          }
+          for(var i = 0; i < array.length; i++){
+            if(array[i].className == 'attention'+index){
+                // 取消收藏
+                if($("."+array[i].className).css('backgroundColor')=="rgb(152, 0, 0)"){ 
+                     $.ajax({
+                        url:'/webDesign/index.php/Info/disattention',
+                        data:{payer:user,
+                              bePayer:account,
+                              index:index
+                            },
+                        success:function(data, textStatus){
+                          array[i].style.backgroundColor='#17a2b8';
+                        }
+                     })
+                    return;
+                }
+                  break;
+            }
+          }
+         $.ajax({
+            url:'/webDesign/index.php/Info/attention',
+            data:{payer:user,
+                  bePayer:account,
+                  index:index
+                },
+            success:function(data, textStatus){
+              for(var i = 0; i < array.length; i++){
+                 if(array[i].className=='attention'+index){
+                     array[i].style.backgroundColor='#980000'; 
+                  } 
+              } 
+            }    
+         })
+    }
+   }
 }

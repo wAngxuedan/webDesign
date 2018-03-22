@@ -43,9 +43,14 @@
 			   		<div class="commentDetail">	
 			   			<div class="commnentTop">#{$i+1}楼&nbsp&nbsp&nbsp&nbsp	
 			   				<img src="/webDesign/Public/img/upload/{$icon[$i]}" >&nbsp&nbsp	
-			   				{$username[$i]}		
-			   				<span class="attention">+关注</span>	   			
-			   				<span class="commentTime">{$vo.com_time}</span></div>
+			   				{$username[$i]}
+			   				<if condition="$attention[$vo['account']] eq 'yes'">		
+			   				<span class="attention{$i}" onclick="attention('{$vo.account}','{$Think.cookie.account}',{$i})" style="background-color:#980000">+关注</span>
+			   				<else/>	
+			   				<span class="attention{$i}" onclick="attention('{$vo.account}','{$Think.cookie.account}',{$i})" >+关注</span>
+			   				</if>	
+			   				<div class="commentTime">{$vo.com_time}</div>
+			   			</div>
 			   			<div class="commnentbottom">
 			   				<p data-toggle="tooltip" title="{$vo.com_content}">{$vo.com_content}</p>
 			   			</div>

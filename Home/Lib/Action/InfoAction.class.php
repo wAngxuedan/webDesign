@@ -67,6 +67,7 @@ class InfoAction extends Action {
         $m3=M('Thumbup');
         $m4=M('Collect');
         $m5=M('User');
+        $m6=M('Attention');
         $info_id=$_GET['info_id'];
         $commentList=null;
         // 初始化cookie
@@ -80,11 +81,19 @@ class InfoAction extends Action {
         }
         if($m4->where($array)->count()>0){
             cookie('collect','yes');
-        }
+         }   
+
+        //以$attention["被关注者的account"]=’yes‘存储数据，然后传到前端方便确认是否关注过
+        $arr['payer']=cookie('account');
+        $count1=$m6->where($arr)->count();
+        $arr1=$m6->where($arr)->select();
+        for($i=0;$i<$count1;$i++){
+            $index=$arr1[$i]['bePayer'];
+            $attention[$index]='yes';
+        } 
          // 获取资讯内容
         $condition['info_id']=$info_id;
         $info=$m1->where($condition)->find();            
-        
         // 该咨询浏览数+1
         $condition['scanNumber']=$info['scanNumber']+1;
         if($m1->save($condition)!==false){
@@ -102,6 +111,7 @@ class InfoAction extends Action {
                 $icon[$i]=$m5->where($arr)->getField('icon');
                 $username[$i]=$m5->where($arr)->getField('username');
             }
+            $this->assign('attention',$attention);
             $this->assign('count',$count);
             $this->assign('content',$content);
             $this->assign('icon',$icon);
@@ -179,11 +189,37 @@ class InfoAction extends Action {
         $m=M('Collect');
         $array['info_id']=$_GET['info_id'];
         $array['account']=$_GET['account'];
+        $index=$_GET['index'];
         if($result=$m->where($array)->delete()){
+             cookie('attention'.$index,null);
              $this->ajaxReturn($result,'取消收藏成功',1);
         }
         else{
              $this->ajaxReturn($result,'取消收藏失败',0);
+        }
+    }
+     // 关注功能
+    public function attention(){
+        $m=M('attention');
+        $array['payer']=$_GET['payer'];
+        $array['bePayer']=$_GET['bePayer'];
+        if($result=$m->add($array)){
+             $this->ajaxReturn($result,'关注成功',1);
+        }
+        else{
+             $this->ajaxReturn($result,'关注失败',0);
+        }
+    }
+    // 取消关注
+    public function disattention(){
+        $m=M('attention');
+        $array['payer']=$_GET['payer'];
+        $array['bePayer']=$_GET['bePayer'];
+        if($result=$m->where($array)->delete()){
+             $this->ajaxReturn($result,'取消关注成功',1);
+        }
+        else{
+             $this->ajaxReturn($result,'取消关注失败',0);
         }
     }
 }

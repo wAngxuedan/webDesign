@@ -54,11 +54,12 @@ hr{margin: 0px;}
 .commentList h2{color: blue}
 .commentDetail{width: 100%;margin:0 auto;float: left;border: 1px dashed grey;margin-bottom: 10px;overflow: hidden;}
 .commnentTop{float: left;width: 100%;overflow: hidden;background-color:#17a2b8}
-.attention{display: inline-block;border: 1px black solid;font-size: 0.6em;color: black;}
-.attention:hover,.like:hover,.collect:hover{cursor: pointer;}
-.attention1{position: absolute;right: 20px;top: 20px;border: 1px #00CCFF solid;font-size: 2em;background-color: #00CCFF}
+.commnentTop span:hover,.like:hover,.collect:hover{cursor: pointer;}
+.att{position: absolute;right: 20px;top: 20px;border: 1px #00CCFF solid;font-size: 2em;}
 .commentTime{float: right;}
 .commnentTop img{width: 34px;height: 35px;}
+.commnentTop span{display: inline-block;border: 1px black solid;font-size: 0.6em;color: black;background-color: #17a2b8}
+.commnentTop span:hover,.like:hover,.collect:hover{cursor: pointer;}
 .commnentbottom p{height: 70px;overflow: hidden;width: 100%;font-size: 0.8em;}
 .commnentbottom{overflow: hidden;height: 70px;float: left;}
 /*个人空间页*/

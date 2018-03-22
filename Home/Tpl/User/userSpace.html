@@ -24,7 +24,7 @@
             <label>电话:</label>
             <span>{$user.phone}</span>
             </div>
-            <span class="attention1">+关注</span>
+            <span class="att">+关注</span>
             <div class="clear"></div>
             <!-- 关注，点赞，收藏标签分页 -->
             <div class="sortPage">
@@ -71,7 +71,12 @@
         </div>
     </div>
 
-
+    <script type="text/javascript">
+      // 页面加载完成自动点击关注标签页
+    window.onload=function(){
+      $('#myTab a:first')[0].click();
+    }
+    </script>
     <script type="text/javascript" src="/webDesign/Public/js/upload/jquery.js"></script> 
     <script src="/webDesign/Public/js/upload/jquery.Jcrop.min.js"></script>
     <script src="/webDesign/Public/js/upload/script.js"></script>

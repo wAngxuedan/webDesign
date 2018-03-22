@@ -184,9 +184,12 @@
 		    	<?php if(is_array($commentList)): foreach($commentList as $i=>$vo): ?><div class="commentDetail">	
 			   			<div class="commnentTop">#<?php echo ($i+1); ?>楼&nbsp&nbsp&nbsp&nbsp	
 			   				<img src="/webDesign/Public/img/upload/<?php echo ($icon[$i]); ?>" >&nbsp&nbsp	
-			   				<?php echo ($username[$i]); ?>		
-			   				<span class="attention">+关注</span>	   			
-			   				<span class="commentTime"><?php echo ($vo["com_time"]); ?></span></div>
+			   				<?php echo ($username[$i]); ?>
+			   				<?php if($attention[$vo['account']] == 'yes'): ?><span class="attention<?php echo ($i); ?>" onclick="attention('<?php echo ($vo["account"]); ?>','<?php echo (cookie('account')); ?>',<?php echo ($i); ?>)" style="background-color:#980000">+关注</span>
+			   				<?php else: ?>	
+			   				<span class="attention<?php echo ($i); ?>" onclick="attention('<?php echo ($vo["account"]); ?>','<?php echo (cookie('account')); ?>',<?php echo ($i); ?>)" >+关注</span><?php endif; ?>	
+			   				<div class="commentTime"><?php echo ($vo["com_time"]); ?></div>
+			   			</div>
 			   			<div class="commnentbottom">
 			   				<p data-toggle="tooltip" title="<?php echo ($vo["com_content"]); ?>"><?php echo ($vo["com_content"]); ?></p>
 			   			</div>
