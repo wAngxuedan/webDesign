@@ -189,7 +189,6 @@ class InfoAction extends Action {
         $m=M('Collect');
         $array['info_id']=$_GET['info_id'];
         $array['account']=$_GET['account'];
-        $index=$_GET['index'];
         if($result=$m->where($array)->delete()){
              cookie('attention'.$index,null);
              $this->ajaxReturn($result,'取消收藏成功',1);

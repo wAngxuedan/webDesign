@@ -50,32 +50,42 @@ hr{margin: 0px;}
 .like,.collect{position: relative;font-size: 1.5em;margin-left: 50px;color: grey;text-align: center;display: inline-block;}
 .comment{width: 100%;}
 .submitBtn{float: right;}
-.commentList .pageInfo{font-size: 1em;}
+.commentList,.pageInfo{font-size: 1em;}
 .commentList h2{color: blue}
 .commentDetail{width: 100%;margin:0 auto;float: left;border: 1px dashed grey;margin-bottom: 10px;overflow: hidden;}
 .commnentTop{float: left;width: 100%;overflow: hidden;background-color:#17a2b8}
 .commnentTop span:hover,.like:hover,.collect:hover{cursor: pointer;}
-.att{position: absolute;right: 20px;top: 20px;border: 1px #00CCFF solid;font-size: 2em;}
 .commentTime{float: right;}
 .commnentTop img{width: 34px;height: 35px;}
-.commnentTop span{display: inline-block;border: 1px black solid;font-size: 0.6em;color: black;background-color: #17a2b8}
+.commnentTop span{display: inline-block;border: 1px black solid;font-size: 0.6em;color: black;background-color: white}
+.commnentTop a{color: black}
 .commnentTop span:hover,.like:hover,.collect:hover{cursor: pointer;}
 .commnentbottom p{height: 70px;overflow: hidden;width: 100%;font-size: 0.8em;}
 .commnentbottom{overflow: hidden;height: 70px;float: left;}
-/*个人空间页*/
+/*userSpace和ownSpace页*/
 .userInfo{border: 1px dashed black;width: 80%;margin: 20px 10%;border-radius: 10px;float: left;padding: 10px;min-height: 670px;position: relative;}
-.infoRight{float: left;width: 55%;font-size: 2em;margin-top: 40px;overflow: hidden;}
-.infoRight label{display: inline-block;width: 15%;text-align: right;margin: 10px 0;font-weight: bold;}
-.infoRight span{display: inline-block;width: 30%;text-align: left;}
-.infoLeft{float: left;width: 30%;margin: 20px;}
+.infoRight{float: left;width: 65%;font-size: 2em;margin-top: 40px;overflow: hidden;z-index: 2}
+.infoRight label{display: inline-block;width: 10%;text-align: right;margin: 10px 0;font-weight: bold;}
+.infoRight span{display: inline-block;width: 35%;text-align: left;}
+.infoLeft{float: left;width: 25%;margin: 20px;}
 .sortPage{float: left;font-size: 2em;display: inline-block;width: 100%;margin-top: 20px;}
 .sortPage ul{background-color:#F0FFFF}
 .sortPage ul li{margin: 20px;font-size: 1.5em}
+.usertap:hover{background-color:#C0C0C0 }
+.usertap img{width: 40px;height: 40px;margin: 0 20px;}
+.usertap a{color:black }
+.usertap span{display: inline-block;border: 1px red solid;font-size: 0.6em;color: black}
+.usertap span:hover{cursor: pointer;}
+.att{position: absolute;right: 20px;top: 20px;border: 1px #00CCFF solid;font-size: 2em;border-radius: 10px;}
+.att:hover{cursor: pointer;}
 /*upload*/
-.error {font-size: 18px;font-weight: bold;color: red;margin:10px 0;display: inline-block;}
+.error {font-size: 13px;font-weight: bold;color: red;margin:10px 0;}
 label{width:60px;display: inline-block}
-.border{position: relative;max-height: 300px;width: 100px;height: 100px;z-index: 0;overflow: hidden;}
+.iconBorder{position: relative;z-index: 0;height: 100px;}
 #icon{width: 150px;height: 150px;position: absolute;left: 20px;}
-#preview{position: absolute;left: 0px;}
+#icon1{width: 100px;height: 100px;position: absolute;}
+.previewBorder{overflow: scroll;min-width: 100px;min-height: 100px;max-width: 300px;max-height: 300px;float: left;z-index: 5;background-color: white;}
+#cover{position: fixed;z-index: 10;top: 0px;left: 0px;display: none;width: 100%;height: 100%;opacity:0.5;background: #000 none repeat scroll 0% 0%;}
 .clear{clear: both;}
+
 

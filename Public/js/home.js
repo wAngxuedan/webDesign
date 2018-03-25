@@ -30,9 +30,11 @@ function like(info_id,account) {
                         url:'/webDesign/index.php/Info/dislike',
                         data:{info_id:info_id,
                               account:account
-                            }
+                            },
+                        success:function(){
+                            ele[i].style.color='grey';
+                        }
                      })
-                    ele[i].style.color='grey';
                     return;
                 }
                   ele[i].style.color='red'; 
@@ -62,9 +64,11 @@ function collect(info_id,account) {
                         url:'/webDesign/index.php/Info/discollect',
                         data:{info_id:info_id,
                               account:account
-                            }
+                            },
+                        success:function(){
+                          ele[i].style.color='grey';
+                        }    
                      })
-                    ele[i].style.color='grey';
                     return;
                 }
                   ele[i].style.color='red'; 
@@ -79,8 +83,8 @@ function collect(info_id,account) {
          })
     }
 }
-// 关注评论者，如果已关注则取消关注重复关注，未关注则执行关注操作
-function attention(account,user,index){
+// 咨讯详情页关注评论者，如果已关注则取消关注重复关注，未关注则执行关注操作
+function attention(account,user){
      array=new Array();
     if(user==""){
         alert("请先登录");
@@ -98,17 +102,21 @@ function attention(account,user,index){
             } 
           }
           for(var i = 0; i < array.length; i++){
-            if(array[i].className == 'attention'+index){
-                // 取消收藏
+            if(array[i].className == 'attention'+account){
+                // 取消关注
                 if($("."+array[i].className).css('backgroundColor')=="rgb(152, 0, 0)"){ 
                      $.ajax({
                         url:'/webDesign/index.php/Info/disattention',
                         data:{payer:user,
                               bePayer:account,
-                              index:index
                             },
                         success:function(data, textStatus){
-                          array[i].style.backgroundColor='#17a2b8';
+                          // 成功取消后改变css样式
+                          for(var i = 0; i < array.length; i++){
+                             if(array[i].className=='attention'+account){
+                                 array[i].style.backgroundColor='white'; 
+                              } 
+                          } 
                         }
                      })
                     return;
@@ -120,11 +128,11 @@ function attention(account,user,index){
             url:'/webDesign/index.php/Info/attention',
             data:{payer:user,
                   bePayer:account,
-                  index:index
                 },
             success:function(data, textStatus){
+              // 成功关注后改变css样式
               for(var i = 0; i < array.length; i++){
-                 if(array[i].className=='attention'+index){
+                 if(array[i].className=='attention'+account){
                      array[i].style.backgroundColor='#980000'; 
                   } 
               } 
@@ -132,4 +140,36 @@ function attention(account,user,index){
          })
     }
    }
+}
+// userSpace页关注/取消关注用户
+function att(payer,bePayer){
+  if(payer==""){
+       alert("请先登录");
+  }else{
+    var ele = document.getElementsByTagName('span');
+        for(var i = 0; i < ele.length; i++){
+          if(ele[i].className == 'att'){
+              // 取消收藏
+              if(ele[i].style.backgroundColor=='rgb(0, 204, 255)'){
+                   $.ajax({
+                      url:'/webDesign/index.php/Info/disattention',
+                      data:{payer:payer,
+                            bePayer:bePayer
+                          },
+                      success:function(){
+                        ele[i].style.backgroundColor='white';
+                      }    
+                   })
+                  return;
+              }
+                ele[i].style.backgroundColor='rgb(0, 204, 255)'; 
+                break;
+          }}
+           $.ajax({
+              url:'/webDesign/index.php/Info/attention',
+              data:{payer:payer,
+                    bePayer:bePayer
+                  }
+          })
+    }
 }

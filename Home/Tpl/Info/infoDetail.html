@@ -43,11 +43,11 @@
 			   		<div class="commentDetail">	
 			   			<div class="commnentTop">#{$i+1}楼&nbsp&nbsp&nbsp&nbsp	
 			   				<img src="/webDesign/Public/img/upload/{$icon[$i]}" >&nbsp&nbsp	
-			   				{$username[$i]}
+			   				<a href="__APP__/User/userSpace/account/{$vo.account}">{$username[$i]}</a>&nbsp
 			   				<if condition="$attention[$vo['account']] eq 'yes'">		
-			   				<span class="attention{$i}" onclick="attention('{$vo.account}','{$Think.cookie.account}',{$i})" style="background-color:#980000">+关注</span>
+			   				<span class="attention{$vo.account}" onclick="attention('{$vo.account}','{$Think.cookie.account}')" style="background-color:#980000">+关注</span>
 			   				<else/>	
-			   				<span class="attention{$i}" onclick="attention('{$vo.account}','{$Think.cookie.account}',{$i})" >+关注</span>
+			   				<span class="attention{$vo.account}" onclick="attention('{$vo.account}','{$Think.cookie.account}')" >+关注</span>
 			   				</if>	
 			   				<div class="commentTime">{$vo.com_time}</div>
 			   			</div>

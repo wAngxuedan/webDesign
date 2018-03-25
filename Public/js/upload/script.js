@@ -115,3 +115,11 @@ function fileSelectHandler() {
     // read selected file as DataURL
     oReader.readAsDataURL(oFile);
 }
+
+$(document).ready(function(){
+    $(".previewBorder").hide();
+})
+
+$("#image_file").click(function(){
+    $(".previewBorder").show();
+})

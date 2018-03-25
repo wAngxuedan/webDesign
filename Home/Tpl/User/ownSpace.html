@@ -3,7 +3,35 @@
         <div class="userInfo">
             <!-- 左边头像部分 -->
             <div class="infoLeft">
-                <img id="icon" src="/webDesign/Public/img/upload/{$user.icon}">
+                <!-- 上传头像组件 -->
+                <div class="demo">
+                    <form id="upload_form" enctype="multipart/form-data" method="post" action="__APP__/User/uploadicon" onsubmit="return checkForm()">
+                        <!-- hidden crop params -->
+                        <input type="hidden" id="x1" name="x1"autocomplete="off" />
+                        <input type="hidden" id="y1" name="y1" autocomplete="off"/>
+                        <input type="hidden" id="x2" name="x2"autocomplete="off" />
+                        <input type="hidden" id="y2" name="y2"autocomplete="off" />
+                        <div class="iconBorder">
+                            <img id="icon1" src="/webDesign/Public/img/upload/{$user.icon}">
+                            <div class="previewBorder">
+                            <img id="preview"/> 
+                            </div>
+                            <!-- <input type="submit" value="上传" class="btn btn-warning uploadIcon" />  -->
+                        </div>
+                        <div class="error">注意：选择图片-截图-上传</div><br/>
+                        <input type="file" name="image_file" id="image_file" onchange="fileSelectHandler()" /><br/> <br/>
+                        <input type="submit" value="上传" class="btn btn-warning uploadIcon" />
+                        <div class="info1" style="display:none">
+                            <ul>
+                                <li><label ">文件大小</label> <input type="text" id="filesize" name="filesize" class="input" autocomplete="off" "/></li>
+                                <li><label ">类型</label> <input type="text" id="filetype" name="filetype" class="input"autocomplete="off"/ "></li>
+                                <li><label ">图像尺寸</label> <input type="text" id="filedim" name="filedim" class="input"autocomplete="off"/ "></li>
+                                <li><label ">宽度</label> <input type="text" id="w" name="w" class="input"autocomplete="off"/ "></li>
+                                <li><label ">高度</label> <input type="text" id="h" name="h" class="input"autocomplete="off"/ "></li>
+                            </ul>
+                         </div>
+                    </form>
+                </div>
             </div>
             <!-- 右边个人资料部分 -->
             <div class="infoRight"> 
@@ -24,11 +52,6 @@
             <label>电话:</label>
             <span>{$user.phone}</span>
             </div>
-            <if condition="$Think.cookie.attention eq 'yes'">
-            <span class="att" style="background-color:#00CCFF" onclick="att('{$Think.cookie.account}','{$user.account}')">+关注</span>
-            <else/>
-            <span class="att" onclick="att('{$Think.cookie.account}','{$user.account}')">+关注</span>
-            </if>
             <div class="clear"></div>
             <!-- 关注，点赞，收藏标签分页 -->
             <div class="sortPage">
@@ -51,7 +74,8 @@
                        <foreach name="attention" item="vo">
                             <div class="usertap">
                                 <img src="/webDesign/Public/img/upload/{$vo.icon}" >
-                                <a href="__APP__/User/userSpace/account/{$vo.account}">{$vo.username}</a>
+                                <a href="__APP__/User/userSpace/account/{$vo.account}">{$vo.username}</a>&nbsp&nbsp
+                                <span onclick="window.location.href='__APP__/User/disattention/payer/{$Think.cookie.account}/bePayer/{$vo.account}'" >取消关注</span>
                             </div>
                         </foreach>
                     </div>
@@ -59,7 +83,12 @@
                         <foreach name="fans" item="vo">
                             <div class="usertap">
                                 <img src="/webDesign/Public/img/upload/{$vo.icon}" >
-                                <a href="__APP__/User/userSpace/account/{$vo.account}">{$vo.username}</a>
+                                <a href="__APP__/User/userSpace/account/{$vo.account}">{$vo.username}</a>&nbsp&nbsp
+                                <if condition="$attention1[$vo['account']] eq 'yes'">        
+                                    <span class="attention{$vo.account}" onclick="attention('{$vo.account}','{$Think.cookie.account}')" style="background-color:#980000">+关注</span>
+                                <else/> 
+                                    <span class="attention{$vo.account}" onclick="attention('{$vo.account}','{$Think.cookie.account}')" >+关注</span>
+                                </if>   
                             </div>
                         </foreach>
                     </div>
@@ -90,3 +119,6 @@
       $('#myTab a:first')[0].click();
     }
     </script>
+    <script type="text/javascript" src="/webDesign/Public/js/upload/jquery.js"></script> 
+    <script src="/webDesign/Public/js/upload/jquery.Jcrop.min.js"></script>
+    <script src="/webDesign/Public/js/upload/script.js"></script>

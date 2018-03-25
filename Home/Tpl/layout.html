@@ -71,7 +71,7 @@
           </li>
           <li class="user-item ">
              <if condition="$Think.cookie.username neq null">
-                <a class="user-link" href="__APP__/User/userSpace/account/{$Think.cookie.account}">hi,{$Think.cookie.username}</a>
+                <a class="user-link" href="__APP__/User/ownSpace/account/{$Think.cookie.account}">hi,{$Think.cookie.username}</a>
              <else />
                 <a class="user-link" href="#" data-toggle="modal" data-target="#myModal1" onclick="document.getElementById('img1').click()">登录</a>  
              </if>  

@@ -1,0 +1,49 @@
+[ 2018-03-25T14:13:31+08:00 ] 0.0.0.0 /webDesign/index.php/Info/infoDetail/info_id/3?payer=ttt&bePayer=18819259287
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001636s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001747s ]
+SQL: SHOW COLUMNS FROM `think_info` [ RunTime:0.011045s ]
+SQL: SHOW COLUMNS FROM `think_comment` [ RunTime:0.004622s ]
+SQL: SHOW COLUMNS FROM `think_thumbup` [ RunTime:0.003991s ]
+SQL: SHOW COLUMNS FROM `think_collect` [ RunTime:0.004738s ]
+SQL: SHOW COLUMNS FROM `think_user` [ RunTime:0.004355s ]
+SQL: SHOW COLUMNS FROM `think_attention` [ RunTime:0.004434s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `think_thumbup` WHERE ( `info_id` = 3 ) AND ( `account` = 'ttt' ) LIMIT 1   [ RunTime:0.000366s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `think_collect` WHERE ( `info_id` = 3 ) AND ( `account` = 'ttt' ) LIMIT 1   [ RunTime:0.000576s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `think_attention` WHERE ( `payer` = 'ttt' ) LIMIT 1   [ RunTime:0.000395s ]
+SQL: SELECT * FROM `think_attention` WHERE ( `payer` = 'ttt' )  [ RunTime:0.000273s ]
+SQL: SELECT * FROM `think_info` WHERE ( `info_id` = 3 ) LIMIT 1   [ RunTime:0.000344s ]
+SQL: UPDATE `think_info` SET `scanNumber`=507 WHERE ( `info_id` = 3 ) [ RunTime:0.000373s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `think_comment` WHERE ( `info_id` = 3 ) LIMIT 1   [ RunTime:0.000321s ]
+SQL: SELECT * FROM `think_comment` WHERE ( `info_id` = 3 ) LIMIT 0,6   [ RunTime:0.000378s ]
+SQL: SELECT `icon` FROM `think_user` WHERE ( `account` = '18819259287' ) LIMIT 1   [ RunTime:0.000381s ]
+SQL: SELECT `username` FROM `think_user` WHERE ( `account` = '18819259287' ) LIMIT 1   [ RunTime:0.000295s ]
+SQL: SELECT `icon` FROM `think_user` WHERE ( `account` = 'ttt' ) LIMIT 1   [ RunTime:0.000316s ]
+SQL: SELECT `username` FROM `think_user` WHERE ( `account` = 'ttt' ) LIMIT 1   [ RunTime:0.000319s ]
+SQL: SELECT `icon` FROM `think_user` WHERE ( `account` = '18819259287' ) LIMIT 1   [ RunTime:0.000371s ]
+SQL: SELECT `username` FROM `think_user` WHERE ( `account` = '18819259287' ) LIMIT 1   [ RunTime:0.000284s ]
+SQL: SELECT `icon` FROM `think_user` WHERE ( `account` = '18819259287' ) LIMIT 1   [ RunTime:0.000277s ]
+SQL: SELECT `username` FROM `think_user` WHERE ( `account` = '18819259287' ) LIMIT 1   [ RunTime:0.000310s ]
+SQL: SELECT `icon` FROM `think_user` WHERE ( `account` = 'test' ) LIMIT 1   [ RunTime:0.000278s ]
+SQL: SELECT `username` FROM `think_user` WHERE ( `account` = 'test' ) LIMIT 1   [ RunTime:0.000425s ]
+SQL: SELECT `icon` FROM `think_user` WHERE ( `account` = '18819259287' ) LIMIT 1   [ RunTime:0.000285s ]
+SQL: SELECT `username` FROM `think_user` WHERE ( `account` = '18819259287' ) LIMIT 1   [ RunTime:0.000253s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.001527s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001617s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined index: manageraccount C:\wamp\www\webDesign\Home\Runtime\Cache\2fffd8887232be51a5a9c3ad20440631.php 第 60 行.
+NOTIC: [8] Undefined index: collect C:\wamp\www\webDesign\Home\Runtime\Cache\2fffd8887232be51a5a9c3ad20440631.php 第 164 行.
+NOTIC: [8] Undefined index: ttt C:\wamp\www\webDesign\Home\Runtime\Cache\2fffd8887232be51a5a9c3ad20440631.php 第 188 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.018572s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.018686s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001208s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001001s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000915s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001183s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.004532s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001025s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001100s ]
+
