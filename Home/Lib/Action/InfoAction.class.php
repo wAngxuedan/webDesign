@@ -137,7 +137,6 @@ class InfoAction extends Action {
             $arr['info_id']=$_POST['info_id'];
             $arr['account']=cookie('account');
             $arr['com_time']=date('Y-m-d h:i:s',time());
-            $arr['username']=cookie('username');
             $m=M('Comment'); 
             if($m->add($arr)){
                 $this->success('添加评论成功');

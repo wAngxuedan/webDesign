@@ -4,7 +4,7 @@
    //确定应用路径
    define('APP_PATH','./Home/');
    
-   define('APP_DEBUG', false);
+   define('APP_DEBUG', true);
    
    //应用核心文件
    require './ThinkPHP/ThinkPHP.php';

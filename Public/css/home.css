@@ -64,8 +64,8 @@ hr{margin: 0px;}
 .commnentbottom{overflow: hidden;height: 70px;float: left;}
 /*userSpace和ownSpace页*/
 .userInfo{border: 1px dashed black;width: 80%;margin: 20px 10%;border-radius: 10px;float: left;padding: 10px;min-height: 670px;position: relative;}
-.infoRight{float: left;width: 65%;font-size: 2em;margin-top: 40px;overflow: hidden;z-index: 2}
-.infoRight label{display: inline-block;width: 10%;text-align: right;margin: 10px 0;font-weight: bold;}
+.infoRight{float: left;width: 65%;font-size: 2em;margin-top: 40px;z-index: 2}
+.infoRight label{display: inline-block;width: 15%;text-align: right;margin: 10px 0;font-weight: bold;}
 .infoRight span{display: inline-block;width: 35%;text-align: left;}
 .infoLeft{float: left;width: 25%;margin: 20px;}
 .sortPage{float: left;font-size: 2em;display: inline-block;width: 100%;margin-top: 20px;}

@@ -1,0 +1,1 @@
+<?php	return array ( 0 => 'payer', 1 => 'bePayer', '_autoinc' => false, '_type' => array ( 'payer' => 'varchar(16)', 'bePayer' => 'varchar(16)', ), );?>
