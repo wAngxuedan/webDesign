@@ -9,7 +9,7 @@ hr{margin: 0px;}
 .navbar{font-size: 3em;background-color: #dc3545!important;}
 .navbar-nav{width: 70%;float: left;}
 .userbar {list-style: none;position:relative;float: left;width: 25%;}
-.userbar li{position: relative;float: right;padding-top:18px;padding-right: 7px;padding-left: 7px;width: 33%;overflow: hidden;text-align: center;}
+.userbar li{position: relative;float: right;padding-top:18px;padding-right: 7px;padding-left: 7px;width: 33%;overflow: hidden;text-align: center;height: 60px;}
 .user-link{color: rgba(255,255,255,.5)}
 .form-control,#loginBtn,#registerBtn{width:70%;margin: auto;display: block;}
 #verifyCode1,#verifyCode2{border:0px;width:80%;}

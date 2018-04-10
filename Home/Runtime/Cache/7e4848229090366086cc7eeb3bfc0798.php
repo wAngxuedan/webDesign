@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?>  <!DOCTYPE html>
   <html>
     <head>
       <title>悟空咨讯</title>
@@ -57,24 +57,18 @@
         </ul>
         <!-- 用户部分 -->
         <ul class="userbar">
-           <if condition="$Think.cookie.manageraccount neq null">
-              <li class="user-item" >
+           <?php if($_COOKIE['manageraccount']!= null): ?><li class="user-item" >
                 <a class="user-link" href="/webDesign/admin.php/Index/index">后台</a>
-              </li>
-           </if>   
+              </li><?php endif; ?>   
           <li class="nuser-item">
-            <if condition="$Think.cookie.username neq null">
-                <a class="user-link" href="#" onclick="logoff()">注销</a>
-             <else />
-                <a class="user-link" href="#" data-toggle="modal" data-target="#myModal2" onclick="document.getElementById('img2').click()">注册</a>
-             </if>  
+            <?php if($_COOKIE['username']!= null): ?><a class="user-link" href="#" onclick="logoff()">注销</a>
+             <?php else: ?>
+                <a class="user-link" href="#" data-toggle="modal" data-target="#myModal2" onclick="document.getElementById('img2').click()">注册</a><?php endif; ?>  
           </li>
           <li class="user-item ">
-             <if condition="$Think.cookie.username neq null">
-                <a class="user-link" href="__APP__/User/ownSpace/account/{$Think.cookie.account}"  data-toggle="tooltip" title="{$Think.cookie.username}">hi,{$Think.cookie.username}</a>
-             <else />
-                <a class="user-link" href="#" data-toggle="modal" data-target="#myModal1" onclick="document.getElementById('img1').click()">登录</a>  
-             </if>  
+             <?php if($_COOKIE['username']!= null): ?><a class="user-link" href="__APP__/User/ownSpace/account/<?php echo (cookie('account')); ?>"  data-toggle="tooltip" title="<?php echo (cookie('username')); ?>">hi,<?php echo (cookie('username')); ?></a>
+             <?php else: ?>
+                <a class="user-link" href="#" data-toggle="modal" data-target="#myModal1" onclick="document.getElementById('img1').click()">登录</a><?php endif; ?>  
           </li>
         </ul>
       </nav>
@@ -155,7 +149,51 @@
           </div>
         </div>
       </div>
-         {__CONTENT__}
+         
+<!-- 轮播 -->
+<div id="picture" class="carousel slide" data-ride="carousel">
+  <!-- 指示符 -->
+  <ul class="carousel-indicators">
+    <li data-target="#picture" data-slide-to="0" class="active"></li>
+    <li data-target="#picture" data-slide-to="1"></li>
+    <li data-target="#picture" data-slide-to="2"></li>
+  </ul>
+  <!-- 轮播图片 -->
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="/webDesign/Public/img/picture1.jpg">
+    </div>
+    <div class="carousel-item">
+      <img src="/webDesign/Public/img/picture2.jpg">
+    </div>
+    <div class="carousel-item">
+      <img src="/webDesign/Public/img/picture3.jpg">
+    </div>
+  </div>
+  <!-- 左右切换按钮 -->
+  <a class="carousel-control-prev" href="#picture" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#picture" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+</div>
+<!-- 主体内容 -->
+<div class="content1">
+  <?php if(is_array($kind)): foreach($kind as $i=>$vo1): ?><div class="mainCard">
+      <h1 ><a href="__APP__/Info/outline/info_kind/<?php echo ($vo1["kind_id"]); ?>"><?php echo ($vo1["kind_name"]); ?></a></h1><hr/>
+      <ul>
+        <?php if(is_array($info[$i])): foreach($info[$i] as $j=>$vo2): ?><li data-toggle="tooltip" title="<?php echo ($vo2["title"]); ?>"><a href="__APP__/Info/infoDetail/info_id/<?php echo ($vo2["info_id"]); ?>"><?php echo ($vo2['title']); ?></a></li><?php endforeach; endif; ?>
+      </ul>
+    </div><?php endforeach; endif; ?>
+   <div class="mainCard">
+    <h1><a href="__APP__/Info/hotSearch">热搜榜</a></h1><hr/>
+    <ul>
+      <?php if(is_array($info_order)): foreach($info_order as $j=>$vo3): ?><li data-toggle="tooltip" title="<?php echo ($vo3["title"]); ?>"><a href="__APP__/Info/infoDetail/info_id/<?php echo ($vo3["info_id"]); ?>"><?php echo ($vo3['title']); ?></a></li><?php endforeach; endif; ?>
+    </ul>
+  </div>
+</div>  
+
       <div class="footer">
          <div class="footer_nav">
            <div class="footer_img"><img src="/webDesign/Public/img/logo2.png"></div>
